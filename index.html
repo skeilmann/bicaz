@@ -1005,16 +1005,15 @@
           </p>
         </div>
 
-        <!-- FEATURED VIDEO.
-             TODO: replace the <source src> below with your video file (e.g. videos/our-zone.mp4)
-             and the poster attribute with a real still frame (1280×720).
-             To use a hosted/embedded video instead, replace the whole <video> element with an iframe, e.g.:
+        <!-- FEATURED VIDEO — public witnessing with the cart, filmed in our territory.
+             To swap it, replace the file videos/preaching-cart.mp4 (and its poster image),
+             or replace the whole <video> element with an embed iframe, e.g.:
              <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Our zone in motion"
                      loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe> -->
         <div class="video-feature reveal">
-          <video controls preload="none" width="1280" height="720"
-            poster='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720"%3E%3Crect width="1280" height="720" fill="%23133e35"/%3E%3Cpath d="M0 560 L320 260 L560 520 L780 330 L1280 560 L1280 720 L0 720 Z" fill="%235c8e44" opacity=".55"/%3E%3Ccircle cx="640" cy="330" r="74" fill="%23f0be49"/%3E%3Cpath d="M615 295 L700 330 L615 365 Z" fill="%23133e35"/%3E%3Ctext x="640" y="480" font-family="Georgia,serif" font-size="38" fill="%23f8edd9" text-anchor="middle"%3EFeatured video placeholder%3C/text%3E%3C/svg%3E'>
-            <source src="videos/our-zone.mp4" type="video/mp4">
+          <video controls preload="none" width="848" height="480"
+            poster="videos/preaching-cart-poster.jpg">
+            <source src="videos/preaching-cart.mp4" type="video/mp4">
             <span class="en">Your browser does not support embedded videos.</span>
             <span class="ro" lang="ro">Browserul dumneavoastră nu acceptă videoclipuri încorporate.</span>
           </video>
@@ -1254,28 +1253,49 @@
        ---------------------------------------------------------- */
     var PHOTO_THEMES = [
       { id: "zone", dir: "photos/zone/", tint: "%2388bfdd", photos: [
-        { file: "zone-1.jpg", en: "The Bicaz Gorges", ro: "Cheile Bicazului" },
-        { file: "zone-2.jpg", en: "The dam of Lake Bicaz", ro: "Barajul lacului Bicaz" },
-        { file: "zone-3.jpg", en: "Lake Izvorul Muntelui", ro: "Lacul Izvorul Muntelui" },
-        { file: "zone-4.jpg", en: "The serpentine roads of our territory", ro: "Serpentinele teritoriului nostru" },
-        { file: "zone-5.jpg", en: "Ceahlău in the distance", ro: "Ceahlăul în zare" },
-        { file: "zone-6.jpg", en: "Villages along the valley", ro: "Sate de-a lungul văii" }
+        { file: "zone-1.jpg", en: "Sunrise over the Ceahlău cliffs", ro: "Răsărit peste stâncile Ceahlăului" },
+        { file: "zone-2.jpg", en: "", ro: "" },
+        { file: "zone-3.jpg", en: "", ro: "" },
+        { file: "zone-4.jpg", en: "", ro: "" },
+        { file: "zone-5.jpg", en: "", ro: "" },
+        { file: "zone-6.jpg", en: "", ro: "" },
+        { file: "zone-7.jpg", en: "", ro: "" },
+        { file: "zone-8.jpg", en: "", ro: "" },
+        { file: "zone-9.jpg", en: "", ro: "" },
+        { file: "zone-10.jpg", en: "", ro: "" },
+        { file: "zone-11.jpg", en: "Spring in the mountains", ro: "Primăvara la munte" },
+        { file: "zone-12.jpg", en: "", ro: "" },
+        { file: "zone-13.jpg", en: "", ro: "" },
+        { file: "zone-14.jpg", en: "", ro: "" },
+        { file: "zone-15.jpg", en: "", ro: "" },
+        { file: "zone-16.jpg", en: "", ro: "" },
+        { file: "zone-17.jpg", en: "", ro: "" }
       ]},
       { id: "cong", dir: "photos/cong/", tint: "%23f0be49", photos: [
-        { file: "cong-1.jpg", en: "Our congregation family", ro: "Familia congregației noastre" },
-        { file: "cong-2.jpg", en: "At our meeting place in Bicaz", ro: "La locul nostru de întrunire din Bicaz" },
-        { file: "cong-3.jpg", en: "Together after the meeting", ro: "Împreună după întrunire" },
-        { file: "cong-4.jpg", en: "Young and old serving side by side", ro: "Tineri și vârstnici slujind umăr la umăr" },
-        { file: "cong-5.jpg", en: "Hospitality, Moldavian style", ro: "Ospitalitate moldovenească" },
-        { file: "cong-6.jpg", en: "Our brothers and sisters", ro: "Frații și surorile noastre" }
+        { file: "cong-1.jpg", en: "", ro: "" },
+        { file: "cong-2.jpg", en: "Bible accounts come alive at family worship", ro: "Relatările biblice prind viață la închinarea în familie" },
+        { file: "cong-3.jpg", en: "", ro: "" },
+        { file: "cong-4.jpg", en: "", ro: "" },
+        { file: "cong-5.jpg", en: "", ro: "" },
+        { file: "cong-6.jpg", en: "", ro: "" },
+        { file: "cong-7.jpg", en: "", ro: "" },
+        { file: "cong-8.jpg", en: "", ro: "" },
+        { file: "cong-9.jpg", en: "", ro: "" },
+        { file: "cong-10.jpg", en: "", ro: "" },
+        { file: "cong-11.jpg", en: "", ro: "" },
+        { file: "cong-12.jpg", en: "Congregation outing above the gorges", ro: "Ieșire cu congregația deasupra cheilor" },
+        { file: "cong-13.jpg", en: "", ro: "" },
+        { file: "cong-14.jpg", en: "", ro: "" },
+        { file: "cong-15.jpg", en: "", ro: "" },
+        { file: "cong-16.jpg", en: "", ro: "" },
+        { file: "cong-17.jpg", en: "", ro: "" }
       ]},
       { id: "preaching", dir: "photos/preaching/", tint: "%235c8e44", photos: [
-        { file: "preaching-1.jpg", en: "Public witnessing at the gorges", ro: "Mărturie publică la chei" },
-        { file: "preaching-2.jpg", en: "The cart by the dam", ro: "Standul lângă baraj" },
-        { file: "preaching-3.jpg", en: "In the door-to-door ministry", ro: "În lucrarea din casă în casă" },
-        { file: "preaching-4.jpg", en: "Conversations that matter", ro: "Conversații care contează" },
-        { file: "preaching-5.jpg", en: "On the road between villages", ro: "Pe drum, între sate" },
-        { file: "preaching-6.jpg", en: "The people of our territory", ro: "Oamenii teritoriului nostru" }
+        { file: "preaching-1.jpg", en: "The literature cart along the mountain road", ro: "Standul cu literatură la drumul de munte" },
+        { file: "preaching-2.jpg", en: "", ro: "" },
+        { file: "preaching-3.jpg", en: "", ro: "" },
+        { file: "preaching-4.jpg", en: "Sharing the good news by Lake Bicaz", ro: "Vestea bună pe malul lacului Bicaz" },
+        { file: "preaching-5.jpg", en: "", ro: "" }
       ]}
     ];
     function themePlaceholder(tint){
@@ -1328,14 +1348,17 @@
           var img = document.createElement("img");
           img.width = 900; img.height = 600;
           img.loading = "lazy"; img.decoding = "async";
-          img.alt = p.en;
+          img.alt = p.en || "Photo from our territory";
           img.onerror = function(){ this.onerror = null; this.src = ph; };
           img.src = theme.dir + p.file;
-          var cap = document.createElement("figcaption");
-          var en = document.createElement("span"); en.className = "en"; en.textContent = p.en;
-          var ro = document.createElement("span"); ro.className = "ro"; ro.setAttribute("lang", "ro"); ro.textContent = p.ro;
-          cap.appendChild(en); cap.appendChild(ro);
-          fig.appendChild(img); fig.appendChild(cap);
+          fig.appendChild(img);
+          if(p.en || p.ro){
+            var cap = document.createElement("figcaption");
+            var en = document.createElement("span"); en.className = "en"; en.textContent = p.en;
+            var ro = document.createElement("span"); ro.className = "ro"; ro.setAttribute("lang", "ro"); ro.textContent = p.ro;
+            cap.appendChild(en); cap.appendChild(ro);
+            fig.appendChild(cap);
+          }
           car.appendChild(fig);
 
           var d = document.createElement("button");
