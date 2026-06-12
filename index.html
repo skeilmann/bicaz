@@ -346,7 +346,7 @@
       grid-template-columns:repeat(2, 1fr);
       margin-top:2.6rem;
     }
-    @media (min-width:860px){ .counters{ grid-template-columns:repeat(4, 1fr); } }
+    @media (min-width:860px){ .counters{ grid-template-columns:repeat(3, 1fr); } }
     .counter{
       text-align:center;
       background:rgba(248,237,217,.06);
@@ -447,8 +447,26 @@
 
     /* ============================================================
        PHOTO CAROUSEL (scroll-snap, touch friendly, keyboard friendly)
+       with theme tabs: Zone · Congregation · Preaching and people
        ============================================================ */
-    .carousel-wrap{ position:relative; margin-top:2.6rem; }
+    .theme-tabs{
+      display:flex; flex-wrap:wrap; justify-content:center; gap:.55rem;
+      margin-top:2.6rem;
+    }
+    .theme-tab{
+      font:inherit; font-weight:700; font-size:.92rem;
+      letter-spacing:.03em; cursor:pointer;
+      border:2px solid var(--green-dark); border-radius:999px;
+      background:transparent; color:var(--green-dark);
+      padding:.55rem 1.25rem;
+      transition:background .3s var(--ease), color .3s var(--ease), transform .25s var(--ease);
+    }
+    .theme-tab:hover{ transform:translateY(-2px); }
+    .theme-tab[aria-selected="true"]{
+      background:var(--green-dark); color:var(--yellow);
+    }
+    .theme-tab:focus-visible{ outline:3px solid var(--orange); outline-offset:3px; }
+    .carousel-wrap{ position:relative; margin-top:1.4rem; }
     .carousel{
       display:flex; gap:1rem;
       overflow-x:auto;
@@ -777,6 +795,14 @@
             <span class="big" data-count="100" data-suffix=" km">0</span>
             <span class="cap"><span class="en">End to end — about 2 h on serpentine roads</span><span class="ro" lang="ro">De la un capăt la altul — circa 2 h pe serpentine</span></span>
           </div>
+          <div class="counter" role="listitem">
+            <span class="big" data-count="98">0</span>
+            <span class="cap"><span class="en">Years old — the oldest member of our congregation</span><span class="ro" lang="ro">Ani — cel mai în vârstă membru al congregației</span></span>
+          </div>
+          <div class="counter" role="listitem">
+            <span class="big" data-count="10">0</span>
+            <span class="cap"><span class="en">Years old — our youngest publisher</span><span class="ro" lang="ro">Ani — cel mai tânăr vestitor al nostru</span></span>
+          </div>
         </div>
 
         <!-- unassigned-territory appeal -->
@@ -919,48 +945,28 @@
           </div>
         </div>
 
-        <!-- PHOTO CAROUSEL — 8 slides. TODO: replace each src with a real photo (3:2 works best)
-             and edit the alt text + caption in both languages.
-             srcset example: srcset="photos/g1-640.jpg 640w, photos/g1-1280.jpg 1280w" sizes="(min-width:860px) 620px, 78vw" -->
+        <!-- PHOTO CAROUSEL — themed. Slides are built by JavaScript from the
+             PHOTO_THEMES manifest in the script at the end of this file
+             (search for "TODO: photo manifest").
+             Put your images in these folders next to this file:
+               photos/zone/  ·  photos/cong/  ·  photos/preaching/ -->
+        <div class="theme-tabs reveal" role="tablist" aria-label="Photo themes" id="theme-tabs">
+          <button type="button" class="theme-tab" role="tab" data-theme="zone" aria-selected="true">
+            <span class="en">Zone</span><span class="ro" lang="ro">Zona</span>
+          </button>
+          <button type="button" class="theme-tab" role="tab" data-theme="cong" aria-selected="false">
+            <span class="en">Congregation</span><span class="ro" lang="ro">Congregația</span>
+          </button>
+          <button type="button" class="theme-tab" role="tab" data-theme="preaching" aria-selected="false">
+            <span class="en">Preaching &amp; people</span><span class="ro" lang="ro">Predicare și oameni</span>
+          </button>
+        </div>
       </div><!-- /.wrap : carousel bleeds full width -->
       <div class="carousel-wrap reveal" role="region" aria-roledescription="carousel" aria-label="Photo gallery">
         <button type="button" class="car-btn car-btn--prev" id="car-prev" aria-label="Previous photo">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
-        <div class="carousel" id="photo-carousel" tabindex="0">
-          <figure class="slide" role="group" aria-label="Photo 1 of 8"><!-- TODO: carousel photo 1 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%2388bfdd"/%3E%3Cpath d="M0 460 L250 180 L430 400 L600 240 L900 460 L900 600 L0 600 Z" fill="%23133e35"/%3E%3Ccircle cx="720" cy="130" r="60" fill="%23f0be49"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 1">
-            <figcaption><span class="en">The Bicaz Gorges</span><span class="ro" lang="ro">Cheile Bicazului</span></figcaption>
-          </figure>
-          <figure class="slide" role="group" aria-label="Photo 2 of 8"><!-- TODO: carousel photo 2 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%23f8edd9"/%3E%3Cpath d="M0 470 L220 220 L420 420 L640 260 L900 470 L900 600 L0 600 Z" fill="%235c8e44"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 2">
-            <figcaption><span class="en">The dam of Lake Bicaz</span><span class="ro" lang="ro">Barajul lacului Bicaz</span></figcaption>
-          </figure>
-          <figure class="slide" role="group" aria-label="Photo 3 of 8"><!-- TODO: carousel photo 3 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%235c8e44"/%3E%3Cpath d="M0 480 L260 240 L450 430 L620 300 L900 480 L900 600 L0 600 Z" fill="%23133e35"/%3E%3Ccircle cx="180" cy="140" r="55" fill="%23f8edd9"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 3">
-            <figcaption><span class="en">Public witnessing by the lake</span><span class="ro" lang="ro">Mărturie publică lângă lac</span></figcaption>
-          </figure>
-          <figure class="slide" role="group" aria-label="Photo 4 of 8"><!-- TODO: carousel photo 4 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%23f0be49"/%3E%3Cpath d="M0 460 L240 220 L430 420 L610 280 L900 460 L900 600 L0 600 Z" fill="%23b05912"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 4">
-            <figcaption><span class="en">In the ministry in Dămuc</span><span class="ro" lang="ro">În lucrare la Dămuc</span></figcaption>
-          </figure>
-          <figure class="slide" role="group" aria-label="Photo 5 of 8"><!-- TODO: carousel photo 5 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%23133e35"/%3E%3Cpath d="M0 470 L210 230 L400 430 L630 270 L900 470 L900 600 L0 600 Z" fill="%235c8e44"/%3E%3Ccircle cx="740" cy="120" r="50" fill="%23f8edd9"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 5">
-            <figcaption><span class="en">Our meeting place in Bicaz</span><span class="ro" lang="ro">Locul nostru de întrunire din Bicaz</span></figcaption>
-          </figure>
-          <figure class="slide" role="group" aria-label="Photo 6 of 8"><!-- TODO: carousel photo 6 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%23f8edd9"/%3E%3Cpath d="M0 450 L200 240 L380 410 L580 250 L900 450 L900 600 L0 600 Z" fill="%23dd5c36"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 6">
-            <figcaption><span class="en">The serpentine road through our territory</span><span class="ro" lang="ro">Serpentinele din teritoriul nostru</span></figcaption>
-          </figure>
-          <figure class="slide" role="group" aria-label="Photo 7 of 8"><!-- TODO: carousel photo 7 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%239e9d91"/%3E%3Cpath d="M0 480 L230 230 L420 430 L640 290 L900 480 L900 600 L0 600 Z" fill="%23133e35"/%3E%3Ccircle cx="200" cy="130" r="45" fill="%23f0be49"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 7">
-            <figcaption><span class="en">Lakeside villages of Hangu</span><span class="ro" lang="ro">Satele de pe malul lacului, la Hangu</span></figcaption>
-          </figure>
-          <figure class="slide" role="group" aria-label="Photo 8 of 8"><!-- TODO: carousel photo 8 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%235c8e44"/%3E%3Cpath d="M0 460 L250 210 L440 420 L620 260 L900 460 L900 600 L0 600 Z" fill="%23f8edd9"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 8">
-            <figcaption><span class="en">Together after the meeting</span><span class="ro" lang="ro">Împreună după întrunire</span></figcaption>
-          </figure>
-        </div>
+        <div class="carousel" id="photo-carousel" tabindex="0"></div>
         <button type="button" class="car-btn car-btn--next" id="car-next" aria-label="Next photo">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
         </button>
@@ -1220,28 +1226,58 @@
     }
 
     /* ----------------------------------------------------------
-       PHOTO CAROUSEL — scroll-snap based; JS only adds buttons,
-       dots and the active-slide highlight
+       THEMED PHOTO CAROUSEL — scroll-snap based, slides built from
+       the manifest below; switching a theme rebuilds the slides.
+
+       TODO: photo manifest — list your real image files here.
+       Upload the images to these folders of the site:
+         photos/zone/       → theme “Zone”
+         photos/cong/       → theme “Congregation”
+         photos/preaching/  → theme “Preaching & people”
+       Either rename your files to match the names below, or change
+       the "file" values to your file names. Until a file exists, a
+       tasteful placeholder is shown automatically.
        ---------------------------------------------------------- */
+    var PHOTO_THEMES = [
+      { id: "zone", dir: "photos/zone/", tint: "%2388bfdd", photos: [
+        { file: "zone-1.jpg", en: "The Bicaz Gorges", ro: "Cheile Bicazului" },
+        { file: "zone-2.jpg", en: "The dam of Lake Bicaz", ro: "Barajul lacului Bicaz" },
+        { file: "zone-3.jpg", en: "Lake Izvorul Muntelui", ro: "Lacul Izvorul Muntelui" },
+        { file: "zone-4.jpg", en: "The serpentine roads of our territory", ro: "Serpentinele teritoriului nostru" },
+        { file: "zone-5.jpg", en: "Ceahlău in the distance", ro: "Ceahlăul în zare" },
+        { file: "zone-6.jpg", en: "Villages along the valley", ro: "Sate de-a lungul văii" }
+      ]},
+      { id: "cong", dir: "photos/cong/", tint: "%23f0be49", photos: [
+        { file: "cong-1.jpg", en: "Our congregation family", ro: "Familia congregației noastre" },
+        { file: "cong-2.jpg", en: "At our meeting place in Bicaz", ro: "La locul nostru de întrunire din Bicaz" },
+        { file: "cong-3.jpg", en: "Together after the meeting", ro: "Împreună după întrunire" },
+        { file: "cong-4.jpg", en: "Young and old serving side by side", ro: "Tineri și vârstnici slujind umăr la umăr" },
+        { file: "cong-5.jpg", en: "Hospitality, Moldavian style", ro: "Ospitalitate moldovenească" },
+        { file: "cong-6.jpg", en: "Our brothers and sisters", ro: "Frații și surorile noastre" }
+      ]},
+      { id: "preaching", dir: "photos/preaching/", tint: "%235c8e44", photos: [
+        { file: "preaching-1.jpg", en: "Public witnessing at the gorges", ro: "Mărturie publică la chei" },
+        { file: "preaching-2.jpg", en: "The cart by the dam", ro: "Standul lângă baraj" },
+        { file: "preaching-3.jpg", en: "In the door-to-door ministry", ro: "În lucrarea din casă în casă" },
+        { file: "preaching-4.jpg", en: "Conversations that matter", ro: "Conversații care contează" },
+        { file: "preaching-5.jpg", en: "On the road between villages", ro: "Pe drum, între sate" },
+        { file: "preaching-6.jpg", en: "The people of our territory", ro: "Oamenii teritoriului nostru" }
+      ]}
+    ];
+    function themePlaceholder(tint){
+      return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="' + tint +
+        '"/%3E%3Cpath d="M0 470 L230 220 L420 420 L640 260 L900 470 L900 600 L0 600 Z" fill="%23133e35"/%3E%3Ctext x="450" y="120" font-family="Georgia,serif" font-size="34" fill="%23133e35" text-anchor="middle"%3EPhoto coming soon%3C/text%3E%3C/svg%3E';
+    }
+
     var car = document.getElementById("photo-carousel");
     if(car){
-      var slides = Array.prototype.slice.call(car.querySelectorAll(".slide"));
       var dotsBox = document.getElementById("car-dots");
-      var current = 0;
-
-      slides.forEach(function(s, i){
-        var d = document.createElement("button");
-        d.type = "button";
-        d.setAttribute("role", "tab");
-        d.setAttribute("aria-label", "Photo " + (i + 1) + " of " + slides.length);
-        d.addEventListener("click", function(){ goTo(i); });
-        dotsBox.appendChild(d);
-      });
-      var dots = dotsBox.children;
+      var slides = [], current = 0, slideIO = null;
 
       function setActive(i){
         current = i;
         slides.forEach(function(s, j){ s.classList.toggle("is-active", j === i); });
+        var dots = dotsBox.children;
         for(var j = 0; j < dots.length; j++){
           if(j === i) dots[j].setAttribute("aria-current", "true");
           else dots[j].removeAttribute("aria-current");
@@ -1250,6 +1286,7 @@
       function goTo(i){
         i = Math.max(0, Math.min(slides.length - 1, i));
         var s = slides[i];
+        if(!s) return;
         car.scrollTo({
           left: s.offsetLeft - (car.clientWidth - s.offsetWidth) / 2,
           behavior: prefersReducedMotion ? "auto" : "smooth"
@@ -1262,15 +1299,62 @@
         if(e.key === "ArrowRight"){ e.preventDefault(); goTo(current + 1); }
       });
 
-      if("IntersectionObserver" in window){
-        var slideIO = new IntersectionObserver(function(entries){
-          entries.forEach(function(entry){
-            if(entry.isIntersecting) setActive(slides.indexOf(entry.target));
-          });
-        }, { root: car, threshold: .6 });
-        slides.forEach(function(s){ slideIO.observe(s); });
+      function buildTheme(themeId){
+        var theme = PHOTO_THEMES.filter(function(t){ return t.id === themeId; })[0];
+        if(!theme) return;
+        if(slideIO){ slideIO.disconnect(); slideIO = null; }
+        car.innerHTML = "";
+        dotsBox.innerHTML = "";
+        var ph = themePlaceholder(theme.tint);
+        slides = theme.photos.map(function(p, i){
+          var fig = document.createElement("figure");
+          fig.className = "slide";
+          fig.setAttribute("role", "group");
+          fig.setAttribute("aria-label", "Photo " + (i + 1) + " of " + theme.photos.length);
+          var img = document.createElement("img");
+          img.width = 900; img.height = 600;
+          img.loading = "lazy"; img.decoding = "async";
+          img.alt = p.en;
+          img.onerror = function(){ this.onerror = null; this.src = ph; };
+          img.src = theme.dir + p.file;
+          var cap = document.createElement("figcaption");
+          var en = document.createElement("span"); en.className = "en"; en.textContent = p.en;
+          var ro = document.createElement("span"); ro.className = "ro"; ro.setAttribute("lang", "ro"); ro.textContent = p.ro;
+          cap.appendChild(en); cap.appendChild(ro);
+          fig.appendChild(img); fig.appendChild(cap);
+          car.appendChild(fig);
+
+          var d = document.createElement("button");
+          d.type = "button";
+          d.setAttribute("role", "tab");
+          d.setAttribute("aria-label", "Photo " + (i + 1) + " of " + theme.photos.length);
+          d.addEventListener("click", (function(idx){ return function(){ goTo(idx); }; })(i));
+          dotsBox.appendChild(d);
+          return fig;
+        });
+        if("IntersectionObserver" in window){
+          slideIO = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+              if(entry.isIntersecting) setActive(slides.indexOf(entry.target));
+            });
+          }, { root: car, threshold: .6 });
+          slides.forEach(function(s){ slideIO.observe(s); });
+        }
+        car.scrollTo({ left: 0, behavior: "auto" });
+        setActive(0);
       }
-      setActive(0);
+
+      var themeTabs = document.querySelectorAll("#theme-tabs .theme-tab");
+      Array.prototype.forEach.call(themeTabs, function(tab){
+        tab.addEventListener("click", function(){
+          Array.prototype.forEach.call(themeTabs, function(t){
+            t.setAttribute("aria-selected", String(t === tab));
+          });
+          buildTheme(tab.getAttribute("data-theme"));
+        });
+      });
+
+      buildTheme("zone");
     }
 
     /* ----------------------------------------------------------
