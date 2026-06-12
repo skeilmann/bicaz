@@ -364,6 +364,15 @@
       margin-bottom:.4rem;
     }
     .counter .cap{ font-size:.85rem; color:#ece4d1; line-height:1.45; display:block; }
+    /* light variant for the About section (sand background) */
+    .counters--light{ margin-top:2.6rem; }
+    .counters--light .counter{
+      background:var(--sand-soft);
+      border:1px solid rgba(19,62,53,.12);
+      box-shadow:0 10px 28px rgba(19,62,53,.1);
+    }
+    .counters--light .counter .big{ color:var(--green); }
+    .counters--light .counter .cap{ color:var(--ink); }
 
     /* "Your help is needed!" callout */
     .help-callout{
@@ -675,20 +684,15 @@
     <section class="about section-pad" id="about">
       <div class="wrap about-grid">
         <div class="reveal">
-          <!-- CONGREGATION PHOTO HERE -->
-          <!-- TODO: replace src with your congregation photo (e.g. photos/congregation.jpg).
-               Keep width/height matching the real file to avoid layout shift.
-               srcset example for responsive loading:
-               srcset="photos/congregation-640.jpg 640w, photos/congregation-1280.jpg 1280w"
-               sizes="(min-width: 860px) 50vw, 100vw" -->
+          <!-- CONGREGATION PHOTO -->
           <figure class="framed">
             <img
-              src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 880"%3E%3Crect width="1280" height="880" fill="%23f8edd9"/%3E%3Ccircle cx="1010" cy="180" r="90" fill="%23f0be49"/%3E%3Cpath d="M0 760 L300 380 L520 640 L720 420 L980 700 L1280 480 L1280 880 L0 880 Z" fill="%235c8e44"/%3E%3Cpath d="M0 880 L0 800 L260 560 L480 760 L700 580 L960 800 L1280 640 L1280 880 Z" fill="%23133e35"/%3E%3Ctext x="640" y="300" font-family="Georgia,serif" font-size="44" fill="%23133e35" text-anchor="middle"%3ECongregation photo%3C/text%3E%3C/svg%3E'
-              width="1280" height="880" loading="lazy" decoding="async"
-              alt="TODO: describe your congregation photo, e.g. ‘The Bicaz-Centru congregation gathered at our meeting place’">
+              src="photos/cong/cong-13.jpg"
+              width="1600" height="1200" loading="lazy" decoding="async"
+              alt="The Bicaz-Centru congregation gathered at our meeting place, everyone waving a warm welcome">
             <figcaption>
-              <span class="en">Our congregation family <!-- TODO: edit caption --></span>
-              <span class="ro" lang="ro">Familia congregației noastre <!-- TODO: edit caption --></span>
+              <span class="en">Our congregation family, waving you welcome</span>
+              <span class="ro" lang="ro">Familia congregației noastre vă spune bun venit</span>
             </figcaption>
           </figure>
         </div>
@@ -721,10 +725,6 @@
 
           <div class="stat-row">
             <div class="stat">
-              <span class="num" data-count="36">0</span>
-              <span class="lbl"><span class="en">Publishers</span><span class="ro" lang="ro">Vestitori</span></span>
-            </div>
-            <div class="stat">
               <span class="num">2019</span>
               <span class="lbl"><span class="en">Congregation formed</span><span class="ro" lang="ro">Anul formării</span></span>
             </div>
@@ -750,6 +750,24 @@
               <span class="num" data-count="11">0</span>
               <span class="lbl"><span class="en">Regular pioneers</span><span class="ro" lang="ro">Pionieri permanenți</span></span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <!-- big animated counters: who we are, young and old -->
+        <div class="counters counters--light reveal" role="list">
+          <div class="counter" role="listitem">
+            <span class="big" data-count="36">0</span>
+            <span class="cap"><span class="en">Publishers</span><span class="ro" lang="ro">Vestitori</span></span>
+          </div>
+          <div class="counter" role="listitem">
+            <span class="big" data-count="98">0</span>
+            <span class="cap"><span class="en">Years old — the oldest member of our congregation</span><span class="ro" lang="ro">Ani — cel mai în vârstă membru al congregației</span></span>
+          </div>
+          <div class="counter" role="listitem">
+            <span class="big" data-count="10">0</span>
+            <span class="cap"><span class="en">Years old — our youngest publisher</span><span class="ro" lang="ro">Ani — cel mai tânăr vestitor al nostru</span></span>
           </div>
         </div>
       </div>
@@ -787,10 +805,6 @@
         <!-- animated counters: numbers count up when scrolled into view -->
         <div class="counters reveal" role="list">
           <div class="counter" role="listitem">
-            <span class="big" data-count="36">0</span>
-            <span class="cap"><span class="en">Publishers</span><span class="ro" lang="ro">Vestitori</span></span>
-          </div>
-          <div class="counter" role="listitem">
             <span class="big" data-count="33">0</span>
             <span class="cap"><span class="en">Villages to preach in</span><span class="ro" lang="ro">Sate de predicat</span></span>
           </div>
@@ -801,14 +815,6 @@
           <div class="counter" role="listitem">
             <span class="big" data-count="100" data-suffix=" km">0</span>
             <span class="cap"><span class="en">End to end — about 2 h on serpentine roads</span><span class="ro" lang="ro">De la un capăt la altul — circa 2 h pe serpentine</span></span>
-          </div>
-          <div class="counter" role="listitem">
-            <span class="big" data-count="98">0</span>
-            <span class="cap"><span class="en">Years old — the oldest member of our congregation</span><span class="ro" lang="ro">Ani — cel mai în vârstă membru al congregației</span></span>
-          </div>
-          <div class="counter" role="listitem">
-            <span class="big" data-count="10">0</span>
-            <span class="cap"><span class="en">Years old — our youngest publisher</span><span class="ro" lang="ro">Ani — cel mai tânăr vestitor al nostru</span></span>
           </div>
         </div>
 
@@ -1284,7 +1290,7 @@
         { file: "cong-10.jpg", en: "", ro: "" },
         { file: "cong-11.jpg", en: "", ro: "" },
         { file: "cong-12.jpg", en: "Congregation outing above the gorges", ro: "Ieșire cu congregația deasupra cheilor" },
-        { file: "cong-13.jpg", en: "", ro: "" },
+        { file: "cong-13.jpg", en: "The whole congregation says welcome!", ro: "Toată congregația vă spune bun venit!" },
         { file: "cong-14.jpg", en: "", ro: "" },
         { file: "cong-15.jpg", en: "", ro: "" },
         { file: "cong-16.jpg", en: "", ro: "" },
