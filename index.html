@@ -445,22 +445,94 @@
       background:var(--yellow); border:2.5px solid var(--green);
     }
 
-    .gallery{
-      display:grid; gap:.9rem;
-      grid-template-columns:repeat(2, 1fr);
-      grid-auto-rows:130px;
-      margin-top:2.6rem;
+    /* ============================================================
+       PHOTO CAROUSEL (scroll-snap, touch friendly, keyboard friendly)
+       ============================================================ */
+    .carousel-wrap{ position:relative; margin-top:2.6rem; }
+    .carousel{
+      display:flex; gap:1rem;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      padding:.4rem 10vw 1.2rem;
+      scrollbar-width:none;
+      -webkit-overflow-scrolling:touch;
     }
-    @media (min-width:700px){
-      .gallery{ grid-template-columns:repeat(3, 1fr); grid-auto-rows:170px; }
+    .carousel::-webkit-scrollbar{ display:none; }
+    .slide{
+      position:relative; flex:0 0 min(78%, 620px);
+      margin:0;
+      border-radius:var(--radius); overflow:hidden;
+      box-shadow:0 14px 38px rgba(19,62,53,.22);
+      scroll-snap-align:center;
+      opacity:.5; transform:scale(.955);
+      transition:opacity .55s var(--ease), transform .55s var(--ease);
     }
-    .gallery figure{
-      border-radius:14px; overflow:hidden;
-      box-shadow:0 6px 20px rgba(19,62,53,.12);
+    .slide.is-active{ opacity:1; transform:none; }
+    .slide img{ width:100%; height:100%; object-fit:cover; aspect-ratio:3/2; }
+    .slide figcaption{
+      position:absolute; left:0; right:0; bottom:0;
+      padding:2.2rem 1.2rem .85rem;
+      font-size:.92rem; font-weight:600; color:var(--sand-soft);
+      background:linear-gradient(transparent, rgba(19,62,53,.85));
     }
-    .gallery figure:nth-child(1),
-    .gallery figure:nth-child(4){ grid-row:span 2; }
-    .gallery img{ width:100%; height:100%; object-fit:cover; }
+    .car-btn{
+      position:absolute; top:50%; transform:translateY(-50%);
+      z-index:5;
+      width:48px; height:48px;
+      display:grid; place-items:center;
+      border:0; border-radius:50%; cursor:pointer;
+      background:rgba(248,237,217,.93); color:var(--green-dark);
+      box-shadow:0 6px 20px rgba(19,62,53,.3);
+      transition:transform .25s var(--ease), background .25s var(--ease);
+    }
+    .car-btn:hover{ background:var(--yellow); transform:translateY(-50%) scale(1.07); }
+    .car-btn:focus-visible{ outline:3px solid var(--orange); outline-offset:2px; }
+    .car-btn--prev{ left:clamp(.4rem, 2vw, 1.4rem); }
+    .car-btn--next{ right:clamp(.4rem, 2vw, 1.4rem); }
+    .car-dots{ display:flex; justify-content:center; gap:.5rem; margin-top:.4rem; }
+    .car-dots button{
+      width:11px; height:11px; padding:0;
+      border:0; border-radius:999px; cursor:pointer;
+      background:rgba(19,62,53,.25);
+      transition:background .3s var(--ease), width .3s var(--ease);
+    }
+    .car-dots button[aria-current="true"]{ background:var(--green-dark); width:28px; }
+    .car-dots button:focus-visible{ outline:3px solid var(--orange); outline-offset:2px; }
+
+    /* ============================================================
+       VIDEO SECTION — cinema band in deep green
+       ============================================================ */
+    .videos{ background:var(--green-dark); color:var(--sand); }
+    .videos h2, .videos h3{ color:var(--sand-soft); }
+    .videos .kicker{ color:var(--yellow); }
+    .videos .lead{ color:#e9e0cc; }
+    .video-feature{
+      margin-top:2.4rem;
+      border-radius:var(--radius); overflow:hidden;
+      border:1px solid rgba(248,237,217,.18);
+      box-shadow:0 20px 60px rgba(0,0,0,.42);
+    }
+    .video-feature video, .video-feature iframe,
+    .video-card video, .video-card iframe{
+      display:block; width:100%; height:auto;
+      aspect-ratio:16/9; border:0;
+      background:#0c2620;
+    }
+    .video-grid{
+      display:grid; gap:1.1rem;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      margin-top:1.1rem;
+    }
+    .video-card{
+      border-radius:var(--radius); overflow:hidden;
+      border:1px solid rgba(248,237,217,.14);
+      background:rgba(248,237,217,.05);
+      box-shadow:0 10px 30px rgba(0,0,0,.3);
+    }
+    .video-card h3{
+      font-family:var(--body); font-weight:600; font-size:.95rem;
+      color:#ece4d1; padding:.8rem 1rem .95rem;
+    }
 
     /* delegates section — light blue sky band */
     .delegates{
@@ -847,21 +919,110 @@
           </div>
         </div>
 
-        <!-- PHOTO GALLERY — 6 slots. TODO: replace each src with a real photo and edit alt text.
-             srcset example: srcset="photos/g1-480.jpg 480w, photos/g1-960.jpg 960w" sizes="(min-width:700px) 33vw, 50vw" -->
-        <div class="gallery reveal" aria-label="Photo gallery">
-          <figure><!-- TODO: gallery photo 1 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800"%3E%3Crect width="600" height="800" fill="%235c8e44"/%3E%3Cpath d="M0 640 L170 400 L300 560 L420 430 L600 640 L600 800 L0 800 Z" fill="%23133e35"/%3E%3Ccircle cx="470" cy="160" r="55" fill="%23f0be49"/%3E%3C/svg%3E' width="600" height="800" loading="lazy" decoding="async" alt="TODO: describe photo 1"></figure>
-          <figure><!-- TODO: gallery photo 2 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"%3E%3Crect width="600" height="400" fill="%23f8edd9"/%3E%3Cpath d="M0 320 L150 160 L290 290 L430 180 L600 320 L600 400 L0 400 Z" fill="%235c8e44"/%3E%3C/svg%3E' width="600" height="400" loading="lazy" decoding="async" alt="TODO: describe photo 2"></figure>
-          <figure><!-- TODO: gallery photo 3 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"%3E%3Crect width="600" height="400" fill="%2388bfdd"/%3E%3Cpath d="M0 300 L200 140 L350 270 L480 190 L600 300 L600 400 L0 400 Z" fill="%23133e35"/%3E%3C/svg%3E' width="600" height="400" loading="lazy" decoding="async" alt="TODO: describe photo 3"></figure>
-          <figure><!-- TODO: gallery photo 4 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800"%3E%3Crect width="600" height="800" fill="%23f0be49"/%3E%3Cpath d="M0 600 L180 360 L330 540 L450 420 L600 600 L600 800 L0 800 Z" fill="%23b05912"/%3E%3C/svg%3E' width="600" height="800" loading="lazy" decoding="async" alt="TODO: describe photo 4"></figure>
-          <figure><!-- TODO: gallery photo 5 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"%3E%3Crect width="600" height="400" fill="%23133e35"/%3E%3Cpath d="M0 310 L160 170 L300 290 L450 180 L600 310 L600 400 L0 400 Z" fill="%235c8e44"/%3E%3Ccircle cx="490" cy="90" r="40" fill="%23f8edd9"/%3E%3C/svg%3E' width="600" height="400" loading="lazy" decoding="async" alt="TODO: describe photo 5"></figure>
-          <figure><!-- TODO: gallery photo 6 -->
-            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"%3E%3Crect width="600" height="400" fill="%23f8edd9"/%3E%3Cpath d="M0 300 L140 180 L260 280 L400 170 L600 300 L600 400 L0 400 Z" fill="%23dd5c36"/%3E%3C/svg%3E' width="600" height="400" loading="lazy" decoding="async" alt="TODO: describe photo 6"></figure>
+        <!-- PHOTO CAROUSEL — 8 slides. TODO: replace each src with a real photo (3:2 works best)
+             and edit the alt text + caption in both languages.
+             srcset example: srcset="photos/g1-640.jpg 640w, photos/g1-1280.jpg 1280w" sizes="(min-width:860px) 620px, 78vw" -->
+      </div><!-- /.wrap : carousel bleeds full width -->
+      <div class="carousel-wrap reveal" role="region" aria-roledescription="carousel" aria-label="Photo gallery">
+        <button type="button" class="car-btn car-btn--prev" id="car-prev" aria-label="Previous photo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="carousel" id="photo-carousel" tabindex="0">
+          <figure class="slide" role="group" aria-label="Photo 1 of 8"><!-- TODO: carousel photo 1 -->
+            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%2388bfdd"/%3E%3Cpath d="M0 460 L250 180 L430 400 L600 240 L900 460 L900 600 L0 600 Z" fill="%23133e35"/%3E%3Ccircle cx="720" cy="130" r="60" fill="%23f0be49"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 1">
+            <figcaption><span class="en">The Bicaz Gorges</span><span class="ro" lang="ro">Cheile Bicazului</span></figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-label="Photo 2 of 8"><!-- TODO: carousel photo 2 -->
+            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%23f8edd9"/%3E%3Cpath d="M0 470 L220 220 L420 420 L640 260 L900 470 L900 600 L0 600 Z" fill="%235c8e44"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 2">
+            <figcaption><span class="en">The dam of Lake Bicaz</span><span class="ro" lang="ro">Barajul lacului Bicaz</span></figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-label="Photo 3 of 8"><!-- TODO: carousel photo 3 -->
+            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%235c8e44"/%3E%3Cpath d="M0 480 L260 240 L450 430 L620 300 L900 480 L900 600 L0 600 Z" fill="%23133e35"/%3E%3Ccircle cx="180" cy="140" r="55" fill="%23f8edd9"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 3">
+            <figcaption><span class="en">Public witnessing by the lake</span><span class="ro" lang="ro">Mărturie publică lângă lac</span></figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-label="Photo 4 of 8"><!-- TODO: carousel photo 4 -->
+            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%23f0be49"/%3E%3Cpath d="M0 460 L240 220 L430 420 L610 280 L900 460 L900 600 L0 600 Z" fill="%23b05912"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 4">
+            <figcaption><span class="en">In the ministry in Dămuc</span><span class="ro" lang="ro">În lucrare la Dămuc</span></figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-label="Photo 5 of 8"><!-- TODO: carousel photo 5 -->
+            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%23133e35"/%3E%3Cpath d="M0 470 L210 230 L400 430 L630 270 L900 470 L900 600 L0 600 Z" fill="%235c8e44"/%3E%3Ccircle cx="740" cy="120" r="50" fill="%23f8edd9"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 5">
+            <figcaption><span class="en">Our meeting place in Bicaz</span><span class="ro" lang="ro">Locul nostru de întrunire din Bicaz</span></figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-label="Photo 6 of 8"><!-- TODO: carousel photo 6 -->
+            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%23f8edd9"/%3E%3Cpath d="M0 450 L200 240 L380 410 L580 250 L900 450 L900 600 L0 600 Z" fill="%23dd5c36"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 6">
+            <figcaption><span class="en">The serpentine road through our territory</span><span class="ro" lang="ro">Serpentinele din teritoriul nostru</span></figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-label="Photo 7 of 8"><!-- TODO: carousel photo 7 -->
+            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%239e9d91"/%3E%3Cpath d="M0 480 L230 230 L420 430 L640 290 L900 480 L900 600 L0 600 Z" fill="%23133e35"/%3E%3Ccircle cx="200" cy="130" r="45" fill="%23f0be49"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 7">
+            <figcaption><span class="en">Lakeside villages of Hangu</span><span class="ro" lang="ro">Satele de pe malul lacului, la Hangu</span></figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-label="Photo 8 of 8"><!-- TODO: carousel photo 8 -->
+            <img src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"%3E%3Crect width="900" height="600" fill="%235c8e44"/%3E%3Cpath d="M0 460 L250 210 L440 420 L620 260 L900 460 L900 600 L0 600 Z" fill="%23f8edd9"/%3E%3C/svg%3E' width="900" height="600" loading="lazy" decoding="async" alt="TODO: describe photo 8">
+            <figcaption><span class="en">Together after the meeting</span><span class="ro" lang="ro">Împreună după întrunire</span></figcaption>
+          </figure>
+        </div>
+        <button type="button" class="car-btn car-btn--next" id="car-next" aria-label="Next photo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <div class="car-dots" id="car-dots" role="tablist" aria-label="Choose photo"></div>
+      </div>
+    </section>
+
+    <!-- ============ 4b · VIDEO SECTION ============ -->
+    <section class="videos section-pad" id="videos">
+      <div class="wrap">
+        <div class="reveal" style="text-align:center;max-width:720px;margin-inline:auto">
+          <span class="kicker">
+            <span class="en">Watch</span><span class="ro" lang="ro">Privește</span>
+          </span>
+          <h2>
+            <span class="en">Our zone in motion</span>
+            <span class="ro" lang="ro">Zona noastră în mișcare</span>
+          </h2>
+          <p class="lead" style="margin-top:1rem;margin-inline:auto">
+            <span class="en">A few moving pictures say more than any description — the gorges, the lake and the brotherhood that serves here.</span>
+            <span class="ro" lang="ro">Câteva imagini în mișcare spun mai mult decât orice descriere — cheile, lacul și frații care slujesc aici.</span>
+          </p>
+        </div>
+
+        <!-- FEATURED VIDEO.
+             TODO: replace the <source src> below with your video file (e.g. videos/our-zone.mp4)
+             and the poster attribute with a real still frame (1280×720).
+             To use a hosted/embedded video instead, replace the whole <video> element with an iframe, e.g.:
+             <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Our zone in motion"
+                     loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe> -->
+        <div class="video-feature reveal">
+          <video controls preload="none" width="1280" height="720"
+            poster='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720"%3E%3Crect width="1280" height="720" fill="%23133e35"/%3E%3Cpath d="M0 560 L320 260 L560 520 L780 330 L1280 560 L1280 720 L0 720 Z" fill="%235c8e44" opacity=".55"/%3E%3Ccircle cx="640" cy="330" r="74" fill="%23f0be49"/%3E%3Cpath d="M615 295 L700 330 L615 365 Z" fill="%23133e35"/%3E%3Ctext x="640" y="480" font-family="Georgia,serif" font-size="38" fill="%23f8edd9" text-anchor="middle"%3EFeatured video placeholder%3C/text%3E%3C/svg%3E'>
+            <source src="videos/our-zone.mp4" type="video/mp4">
+            <span class="en">Your browser does not support embedded videos.</span>
+            <span class="ro" lang="ro">Browserul dumneavoastră nu acceptă videoclipuri încorporate.</span>
+          </video>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-card reveal">
+            <!-- TODO: small video 1 — replace source src and poster, edit the title below -->
+            <video controls preload="none" width="640" height="360"
+              poster='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"%3E%3Crect width="640" height="360" fill="%230c2620"/%3E%3Cpath d="M0 280 L170 140 L300 260 L420 170 L640 280 L640 360 L0 360 Z" fill="%235c8e44" opacity=".5"/%3E%3Ccircle cx="320" cy="160" r="44" fill="%23f0be49"/%3E%3Cpath d="M306 140 L356 160 L306 180 Z" fill="%23133e35"/%3E%3C/svg%3E'>
+              <source src="videos/clip-1.mp4" type="video/mp4">
+            </video>
+            <h3>
+              <span class="en">Cart witnessing at the gorges</span>
+              <span class="ro" lang="ro">Mărturie cu standul la chei</span>
+            </h3>
+          </div>
+          <div class="video-card reveal">
+            <!-- TODO: small video 2 — replace source src and poster, edit the title below -->
+            <video controls preload="none" width="640" height="360"
+              poster='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"%3E%3Crect width="640" height="360" fill="%230c2620"/%3E%3Cpath d="M0 270 L150 150 L280 250 L430 160 L640 270 L640 360 L0 360 Z" fill="%2388bfdd" opacity=".4"/%3E%3Ccircle cx="320" cy="160" r="44" fill="%23f0be49"/%3E%3Cpath d="M306 140 L356 160 L306 180 Z" fill="%23133e35"/%3E%3C/svg%3E'>
+              <source src="videos/clip-2.mp4" type="video/mp4">
+            </video>
+            <h3>
+              <span class="en">A drive across the territory</span>
+              <span class="ro" lang="ro">Pe drum prin teritoriu</span>
+            </h3>
+          </div>
         </div>
       </div>
     </section>
@@ -1056,6 +1217,60 @@
           ticking = false;
         });
       }, { passive: true });
+    }
+
+    /* ----------------------------------------------------------
+       PHOTO CAROUSEL — scroll-snap based; JS only adds buttons,
+       dots and the active-slide highlight
+       ---------------------------------------------------------- */
+    var car = document.getElementById("photo-carousel");
+    if(car){
+      var slides = Array.prototype.slice.call(car.querySelectorAll(".slide"));
+      var dotsBox = document.getElementById("car-dots");
+      var current = 0;
+
+      slides.forEach(function(s, i){
+        var d = document.createElement("button");
+        d.type = "button";
+        d.setAttribute("role", "tab");
+        d.setAttribute("aria-label", "Photo " + (i + 1) + " of " + slides.length);
+        d.addEventListener("click", function(){ goTo(i); });
+        dotsBox.appendChild(d);
+      });
+      var dots = dotsBox.children;
+
+      function setActive(i){
+        current = i;
+        slides.forEach(function(s, j){ s.classList.toggle("is-active", j === i); });
+        for(var j = 0; j < dots.length; j++){
+          if(j === i) dots[j].setAttribute("aria-current", "true");
+          else dots[j].removeAttribute("aria-current");
+        }
+      }
+      function goTo(i){
+        i = Math.max(0, Math.min(slides.length - 1, i));
+        var s = slides[i];
+        car.scrollTo({
+          left: s.offsetLeft - (car.clientWidth - s.offsetWidth) / 2,
+          behavior: prefersReducedMotion ? "auto" : "smooth"
+        });
+      }
+      document.getElementById("car-prev").addEventListener("click", function(){ goTo(current - 1); });
+      document.getElementById("car-next").addEventListener("click", function(){ goTo(current + 1); });
+      car.addEventListener("keydown", function(e){
+        if(e.key === "ArrowLeft"){ e.preventDefault(); goTo(current - 1); }
+        if(e.key === "ArrowRight"){ e.preventDefault(); goTo(current + 1); }
+      });
+
+      if("IntersectionObserver" in window){
+        var slideIO = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if(entry.isIntersecting) setActive(slides.indexOf(entry.target));
+          });
+        }, { root: car, threshold: .6 });
+        slides.forEach(function(s){ slideIO.observe(s); });
+      }
+      setActive(0);
     }
 
     /* ----------------------------------------------------------
