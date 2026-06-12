@@ -516,6 +516,13 @@
     }
     .car-dots button[aria-current="true"]{ background:var(--green-dark); width:28px; }
     .car-dots button:focus-visible{ outline:3px solid var(--orange); outline-offset:2px; }
+    .photo-note{
+      display:flex; align-items:center; justify-content:center; gap:.6rem;
+      margin-top:1.4rem; padding-inline:1.2rem;
+      text-align:center; font-size:.97rem; font-style:italic; color:var(--ink);
+    }
+    .photo-note svg{ flex:none; color:var(--orange-dark); }
+    .photo-note strong{ color:var(--orange-dark); font-style:normal; }
 
     /* ============================================================
        VIDEO SECTION — cinema band in deep green
@@ -971,6 +978,13 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
         </button>
         <div class="car-dots" id="car-dots" role="tablist" aria-label="Choose photo"></div>
+        <p class="photo-note">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg>
+          <span>
+            <span class="en">Every photo was taken in our own territory, with regular phones. <strong>The beauty is true!</strong></span>
+            <span class="ro" lang="ro">Toate fotografiile au fost făcute în teritoriul nostru, cu telefoane obișnuite. <strong>Frumusețea este adevărată!</strong></span>
+          </span>
+        </p>
       </div>
     </section>
 
