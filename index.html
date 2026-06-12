@@ -14,16 +14,16 @@
        Search for "TODO:" to find every placeholder you must edit.
        ================================================================ -->
 
-  <title>Welcome to Piatra Neamț · Bun venit la Piatra Neamț</title>
-  <meta name="description" content="A warm welcome for international delegates of the 2026 “Eternal Happiness” Convention — discover our congregation, our territory and the Neamț region of Romania.">
+  <title>Welcome to Bicaz · Bun venit la Bicaz</title>
+  <meta name="description" content="A warm welcome for international delegates of the 2026 “Eternal Happiness” Convention — discover the Bicaz-Centru congregation and the mountain territory where we preach, in Neamț County, Romania.">
 
   <!-- TODO: replace with your real published URL (canonical) -->
   <link rel="canonical" href="https://YOUR-DOMAIN.example/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Welcome to Piatra Neamț — 2026 Convention Delegates">
-  <meta property="og:description" content="Discover our congregation and the territory where we preach, in the heart of the Neamț mountains, Romania.">
+  <meta property="og:title" content="Welcome to Bicaz — 2026 Convention Delegates">
+  <meta property="og:description" content="Discover the Bicaz-Centru congregation and the territory where we preach, among the gorges and lakes of the Neamț mountains, Romania.">
   <!-- TODO: replace with your real published URL -->
   <meta property="og:url" content="https://YOUR-DOMAIN.example/">
   <!-- TODO: replace with a real 1200×630 social-share image -->
@@ -35,41 +35,43 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Welcome to Piatra Neamț — 2026 Convention Delegates">
-  <meta name="twitter:description" content="Discover our congregation and the territory where we preach, in the heart of the Neamț mountains, Romania.">
+  <meta name="twitter:title" content="Welcome to Bicaz — 2026 Convention Delegates">
+  <meta name="twitter:description" content="Discover the Bicaz-Centru congregation and the territory where we preach, among the gorges and lakes of the Neamț mountains, Romania.">
   <!-- TODO: replace with the same social-share image as og:image -->
   <meta name="twitter:image" content="https://YOUR-DOMAIN.example/og-image.jpg">
 
   <!-- Favicon: inline SVG mountain, no extra request -->
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23133e35"/><path d="M8 46 L24 22 L33 35 L40 26 L56 46 Z" fill="%23f0be49"/><circle cx="46" cy="16" r="5" fill="%23f8edd9"/></svg>'>
 
-  <!-- JSON-LD structured data — TODO: update name, address, phone and coordinates -->
+  <!-- JSON-LD structured data — TODO: update the URL; fine-tune the geo coordinates if needed -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "name": "Piatra Neamț Congregation of Jehovah's Witnesses",
+        "name": "Bicaz-Centru Congregation of Jehovah's Witnesses",
         "url": "https://YOUR-DOMAIN.example/",
+        "telephone": "+40733570552",
         "description": "Local congregation welcoming international delegates of the 2026 convention.",
-        "areaServed": "Piatra Neamț, Neamț County, Romania"
+        "areaServed": "Bicaz, Neamț County, Romania"
       },
       {
         "@type": "Place",
-        "name": "Kingdom Hall — Piatra Neamț",
+        "name": "Meeting place — Bicaz-Centru Congregation",
+        "telephone": "+40733570552",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "TODO: street and number",
-          "addressLocality": "Piatra Neamț",
+          "streetAddress": "Str. Pieții, nr. 6, etaj 1",
+          "addressLocality": "Bicaz",
           "addressRegion": "Neamț",
-          "postalCode": "TODO",
+          "postalCode": "615100",
           "addressCountry": "RO"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 46.9300,
-          "longitude": 26.3700
+          "latitude": 46.9119,
+          "longitude": 26.0905
         }
       }
     ]
@@ -329,8 +331,59 @@
       font-family:var(--display); font-weight:700;
       font-size:1.9rem; color:var(--green);
       display:block; line-height:1.1;
+      font-variant-numeric:tabular-nums;
     }
     .stat .lbl{ font-size:.85rem; font-weight:600; letter-spacing:.04em; color:var(--ink); }
+    .stat-row--small{
+      margin-top:1.4rem; padding-top:1.3rem; gap:1.2rem 2rem;
+      border-top:1px dashed rgba(19,62,53,.25);
+    }
+    .stat-row--small .num{ font-size:1.4rem; color:var(--orange-dark); }
+
+    /* animated counters band (territory section) */
+    .counters{
+      display:grid; gap:1.1rem;
+      grid-template-columns:repeat(2, 1fr);
+      margin-top:2.6rem;
+    }
+    @media (min-width:860px){ .counters{ grid-template-columns:repeat(4, 1fr); } }
+    .counter{
+      text-align:center;
+      background:rgba(248,237,217,.06);
+      border:1px solid rgba(248,237,217,.16);
+      border-radius:var(--radius);
+      padding:1.7rem 1rem 1.4rem;
+    }
+    .counter .big{
+      display:block;
+      font-family:var(--display); font-weight:700;
+      font-size:clamp(2.1rem, 5vw, 2.9rem);
+      line-height:1.1;
+      color:var(--yellow);
+      font-variant-numeric:tabular-nums;
+      margin-bottom:.4rem;
+    }
+    .counter .cap{ font-size:.85rem; color:#ece4d1; line-height:1.45; display:block; }
+
+    /* "Your help is needed!" callout */
+    .help-callout{
+      display:flex; align-items:flex-start; gap:1.1rem;
+      background:var(--yellow);
+      color:var(--green-dark);
+      border-radius:var(--radius);
+      border-left:8px solid var(--orange);
+      box-shadow:0 10px 32px rgba(0,0,0,.28);
+      padding:1.5rem 1.6rem;
+      margin-top:1.4rem;
+    }
+    .help-callout h3{ color:var(--green-dark); font-size:1.35rem; margin-bottom:.3rem; }
+    .help-callout p{ font-size:.98rem; color:#2c3a25; }
+    .help-icon{
+      flex:none; display:grid; place-items:center;
+      width:52px; height:52px; border-radius:50%;
+      background:var(--orange); color:var(--sand-soft);
+      margin-top:.15rem;
+    }
 
     /* territory section — deep green band */
     .territory{
@@ -477,7 +530,7 @@
         <path d="M8 46 L24 22 L33 35 L40 26 L56 46 Z" fill="#133e35"/>
         <circle cx="46" cy="16" r="5" fill="#dd5c36"/>
       </svg>
-      <span>Piatra&nbsp;Neamț&nbsp;·&nbsp;2026</span>
+      <span>Bicaz&nbsp;·&nbsp;2026</span>
     </div>
     <div class="lang-toggle" role="group" aria-label="Language / Limbă">
       <button type="button" id="btn-en" aria-pressed="true" lang="en">EN</button>
@@ -488,8 +541,8 @@
   <main id="main">
 
     <!-- ============ 1 · HERO WITH LIVE MAP ============ -->
-    <section class="hero" aria-label="Map of Piatra Neamț and welcome message">
-      <div id="map" aria-label="Interactive map of Piatra Neamț, Romania, showing our congregation and preaching territory" role="application"></div>
+    <section class="hero" aria-label="Map of Bicaz and welcome message">
+      <div id="map" aria-label="Interactive map of Bicaz, Romania, showing our congregation and preaching territory" role="application"></div>
 
       <div class="hero-panel" id="hero-panel">
         <p class="convention-line">
@@ -498,12 +551,12 @@
         </p>
         <!-- TODO: edit the welcome heading and subtitle (both languages) -->
         <h1>
-          <span class="en">Welcome to Piatra&nbsp;Neamț</span>
-          <span class="ro" lang="ro">Bun venit la Piatra&nbsp;Neamț</span>
+          <span class="en">Welcome to Bicaz</span>
+          <span class="ro" lang="ro">Bun venit la Bicaz</span>
         </h1>
         <p class="sub">
-          <span class="en">The town between mountains where our congregation joyfully shares the good news.</span>
-          <span class="ro" lang="ro">Orașul dintre munți în care congregația noastră împărtășește cu bucurie vestea bună.</span>
+          <span class="en">The town at the gates of the Bicaz Gorges, where the Bicaz-Centru congregation joyfully shares the good news.</span>
+          <span class="ro" lang="ro">Orașul de la porțile Cheilor Bicazului, unde congregația Bicaz-Centru împărtășește cu bucurie vestea bună.</span>
         </p>
       </div>
 
@@ -535,7 +588,7 @@
             <img
               src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 880"%3E%3Crect width="1280" height="880" fill="%23f8edd9"/%3E%3Ccircle cx="1010" cy="180" r="90" fill="%23f0be49"/%3E%3Cpath d="M0 760 L300 380 L520 640 L720 420 L980 700 L1280 480 L1280 880 L0 880 Z" fill="%235c8e44"/%3E%3Cpath d="M0 880 L0 800 L260 560 L480 760 L700 580 L960 800 L1280 640 L1280 880 Z" fill="%23133e35"/%3E%3Ctext x="640" y="300" font-family="Georgia,serif" font-size="44" fill="%23133e35" text-anchor="middle"%3ECongregation photo%3C/text%3E%3C/svg%3E'
               width="1280" height="880" loading="lazy" decoding="async"
-              alt="TODO: describe your congregation photo, e.g. ‘Our congregation gathered in front of the Kingdom Hall in Piatra Neamț’">
+              alt="TODO: describe your congregation photo, e.g. ‘The Bicaz-Centru congregation gathered at our meeting place’">
             <figcaption>
               <span class="en">Our congregation family <!-- TODO: edit caption --></span>
               <span class="ro" lang="ro">Familia congregației noastre <!-- TODO: edit caption --></span>
@@ -549,40 +602,56 @@
             <span class="ro" lang="ro">Despre congregația noastră</span>
           </span>
           <h2>
-            <!-- TODO: congregation name (both languages) -->
-            <span class="en">The Piatra Neamț Congregation</span>
-            <span class="ro" lang="ro">Congregația Piatra Neamț</span>
+            <span class="en">The Bicaz-Centru Congregation</span>
+            <span class="ro" lang="ro">Congregația Bicaz-Centru</span>
           </h2>
           <p class="lead" style="margin-top:1rem">
-            <!-- TODO: short history / context, EN version -->
+            <!-- TODO: adjust the short history if you wish — EN version -->
             <span class="en">
-              For decades, our brothers and sisters have shared the good news at the gateway
-              to the Eastern Carpathians. We are a warm, close-knit family of publishers who
-              love welcoming guests — and we can't wait to meet you.
+              Our congregation was formed in 2019 from a group that belonged to the
+              Piatra Neamț congregation — with whom we still work closely as our nearest
+              congregation. We are a warm, close-knit family of publishers serving among
+              the mountains, and we can't wait to meet you.
             </span>
-            <!-- TODO: short history / context, RO version -->
+            <!-- TODO: adjust the short history if you wish — RO version -->
             <span class="ro" lang="ro">
-              De zeci de ani, frații și surorile noastre împărtășesc vestea bună la poarta
-              Carpaților Orientali. Suntem o familie unită și caldă de vestitori cărora le
-              place să primească oaspeți — și abia așteptăm să vă cunoaștem.
+              Congregația noastră s-a format în 2019 dintr-o grupă care aparținea de
+              congregația Piatra Neamț — cu care colaborăm în continuare îndeaproape, fiind
+              cea mai apropiată congregație. Suntem o familie unită și caldă de vestitori
+              care slujesc printre munți și abia așteptăm să vă cunoaștem.
             </span>
           </p>
 
           <div class="stat-row">
             <div class="stat">
-              <!-- TODO: number of publishers -->
-              <span class="num">85+</span>
+              <span class="num" data-count="36">0</span>
               <span class="lbl"><span class="en">Publishers</span><span class="ro" lang="ro">Vestitori</span></span>
             </div>
             <div class="stat">
-              <!-- TODO: languages spoken in the congregation -->
-              <span class="num">RO · EN</span>
-              <span class="lbl"><span class="en">Languages spoken</span><span class="ro" lang="ro">Limbi vorbite</span></span>
+              <span class="num">2019</span>
+              <span class="lbl"><span class="en">Congregation formed</span><span class="ro" lang="ro">Anul formării</span></span>
             </div>
             <div class="stat">
-              <!-- TODO: year the congregation was formed -->
-              <span class="num">19XX</span>
-              <span class="lbl"><span class="en">Congregation formed</span><span class="ro" lang="ro">Anul formării</span></span>
+              <span class="num">RO</span>
+              <span class="lbl"><span class="en">Language of meetings</span><span class="ro" lang="ro">Limba întrunirilor</span></span>
+            </div>
+          </div>
+          <div class="stat-row stat-row--small">
+            <div class="stat">
+              <span class="num" data-count="4">0</span>
+              <span class="lbl"><span class="en">Elders</span><span class="ro" lang="ro">Bătrâni</span></span>
+            </div>
+            <div class="stat">
+              <span class="num" data-count="3">0</span>
+              <span class="lbl"><span class="en">Ministerial servants</span><span class="ro" lang="ro">Slujitori auxiliari</span></span>
+            </div>
+            <div class="stat">
+              <span class="num" data-count="2">0</span>
+              <span class="lbl"><span class="en">Special pioneers</span><span class="ro" lang="ro">Pionieri speciali</span></span>
+            </div>
+            <div class="stat">
+              <span class="num" data-count="11">0</span>
+              <span class="lbl"><span class="en">Regular pioneers</span><span class="ro" lang="ro">Pionieri permanenți</span></span>
             </div>
           </div>
         </div>
@@ -601,20 +670,58 @@
             <span class="ro" lang="ro">Unde predicăm</span>
           </h2>
           <p class="lead" style="margin-top:1rem">
-            <!-- TODO: describe your territory (urban/rural mix, villages, distances, terrain) — EN -->
+            <!-- TODO: adjust the territory description if you wish — EN -->
             <span class="en">
-              Our territory stretches from the streets of Piatra Neamț to quiet villages
-              along the Bistrița valley — a mix of urban neighbourhoods, forested hills and
-              farmland where the people are known for their hospitality.
+              Our territory covers eight mountain communes — Bicaz, Bicaz-Chei, Bicazu
+              Ardelean, Dămuc, Hangu, Pângărați, Tarcău and Tașca. From one end to the
+              other it stretches about 100 km of serpentine mountain roads — nearly two
+              hours by car through gorges, forests and lakeside villages.
             </span>
-            <!-- TODO: describe your territory — RO -->
+            <!-- TODO: adjust the territory description if you wish — RO -->
             <span class="ro" lang="ro">
-              Teritoriul nostru se întinde de la străzile orașului Piatra Neamț până la
-              satele liniștite de pe valea Bistriței — un amestec de cartiere urbane,
-              dealuri împădurite și terenuri agricole, unde oamenii sunt cunoscuți pentru
-              ospitalitatea lor.
+              Teritoriul nostru cuprinde opt comune de munte — Bicaz, Bicaz-Chei, Bicazu
+              Ardelean, Dămuc, Hangu, Pângărați, Tarcău și Tașca. De la un capăt la altul
+              se întinde pe aproximativ 100 km de serpentine — aproape două ore cu mașina,
+              printre chei, păduri și sate de pe malul lacului.
             </span>
           </p>
+        </div>
+
+        <!-- animated counters: numbers count up when scrolled into view -->
+        <div class="counters reveal" role="list">
+          <div class="counter" role="listitem">
+            <span class="big" data-count="36">0</span>
+            <span class="cap"><span class="en">Publishers</span><span class="ro" lang="ro">Vestitori</span></span>
+          </div>
+          <div class="counter" role="listitem">
+            <span class="big" data-count="33">0</span>
+            <span class="cap"><span class="en">Villages to preach in</span><span class="ro" lang="ro">Sate de predicat</span></span>
+          </div>
+          <div class="counter" role="listitem">
+            <span class="big" data-count="2000" data-prefix="1 / ">1 / 0</span>
+            <span class="cap"><span class="en">One publisher for every 2,000 inhabitants</span><span class="ro" lang="ro">Un vestitor la 2 000 de locuitori</span></span>
+          </div>
+          <div class="counter" role="listitem">
+            <span class="big" data-count="100" data-suffix=" km">0</span>
+            <span class="cap"><span class="en">End to end — about 2 h on serpentine roads</span><span class="ro" lang="ro">De la un capăt la altul — circa 2 h pe serpentine</span></span>
+          </div>
+        </div>
+
+        <!-- unassigned-territory appeal -->
+        <div class="help-callout reveal">
+          <span class="help-icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.9-7-10.5a4.5 4.5 0 0 1 7-3.7 4.5 4.5 0 0 1 7 3.7C19 16.1 12 21 12 21z"/></svg>
+          </span>
+          <div>
+            <h3>
+              <span class="en">Your help is needed!</span>
+              <span class="ro" lang="ro">Este nevoie de ajutorul tău!</span>
+            </h3>
+            <p>
+              <span class="en">Between the areas we cover there is still unassigned territory — villages and hamlets where no one preaches regularly yet. There is plenty of room for more workers in this beautiful corner of the harvest.</span>
+              <span class="ro" lang="ro">Între zonele pe care le acoperim există încă teritoriu nerepartizat — sate și cătune în care nimeni nu predică în mod regulat. Este loc din belșug pentru mai mulți lucrători în acest colț frumos al secerișului.</span>
+            </p>
+          </div>
         </div>
 
         <div class="card-grid">
@@ -624,9 +731,8 @@
             </span>
             <h3><span class="en">Territory size</span><span class="ro" lang="ro">Mărimea teritoriului</span></h3>
             <p>
-              <!-- TODO: territory size fact -->
-              <span class="en">Roughly XX km², from the city centre to villages up to XX km away.</span>
-              <span class="ro" lang="ro">Aproximativ XX km², din centrul orașului până la sate aflate la XX km.</span>
+              <span class="en">Eight communes and 33 villages, stretching about 100 km from end to end — roughly 2 hours by car on winding mountain roads.</span>
+              <span class="ro" lang="ro">Opt comune și 33 de sate, întinse pe circa 100 km de la un capăt la altul — aproximativ 2 ore cu mașina pe drumuri de munte șerpuite.</span>
             </p>
           </div>
 
@@ -636,9 +742,9 @@
             </span>
             <h3><span class="en">Population</span><span class="ro" lang="ro">Populație</span></h3>
             <p>
-              <!-- TODO: population fact -->
-              <span class="en">About 85,000 people in the city, plus several thousand in surrounding villages.</span>
-              <span class="ro" lang="ro">Aproximativ 85.000 de locuitori în oraș, plus câteva mii în satele din jur.</span>
+              <!-- TODO: adjust the population figure if needed -->
+              <span class="en">Around 70,000 people live in our territory — about 2,000 inhabitants for every publisher.</span>
+              <span class="ro" lang="ro">În teritoriul nostru locuiesc în jur de 70 000 de oameni — aproximativ 2 000 de locuitori pentru fiecare vestitor.</span>
             </p>
           </div>
 
@@ -648,9 +754,8 @@
             </span>
             <h3><span class="en">Languages we meet</span><span class="ro" lang="ro">Limbi întâlnite</span></h3>
             <p>
-              <!-- TODO: languages encountered in the ministry -->
-              <span class="en">Mostly Romanian; we also meet Romani, Russian and English speakers.</span>
-              <span class="ro" lang="ro">În principal română; întâlnim și vorbitori de romani, rusă și engleză.</span>
+              <span class="en">The ministry here is entirely in Romanian — we practically never meet English speakers in the territory.</span>
+              <span class="ro" lang="ro">Lucrarea de aici se desfășoară integral în limba română — practic nu întâlnim vorbitori de engleză în teritoriu.</span>
             </p>
           </div>
 
@@ -660,9 +765,8 @@
             </span>
             <h3><span class="en">Special features</span><span class="ro" lang="ro">Particularități</span></h3>
             <p>
-              <!-- TODO: special features of the territory -->
-              <span class="en">Mountain terrain, scattered hamlets, and seasonal tourism around the lake and gondola.</span>
-              <span class="ro" lang="ro">Teren montan, cătune răsfirate și turism sezonier în zona lacului și a telegondolei.</span>
+              <span class="en">Public witnessing in breathtaking spots — the Bicaz Gorges, the great dam of Lake Bicaz — plus scattered hamlets and seasonal tourism.</span>
+              <span class="ro" lang="ro">Mărturie publică în locuri de o frumusețe rară — Cheile Bicazului, barajul lacului Bicaz — plus cătune răsfirate și turism sezonier.</span>
             </p>
           </div>
         </div>
@@ -725,22 +829,19 @@
                 <span class="ro" lang="ro"> dimineața târziu și seara devreme; piețele de sâmbătă sunt locuri pline de viață pentru conversații.</span>
               </li>
               <li>
-                <!-- TODO: notable experiences -->
-                <strong><span class="en">Notable experiences:</span><span class="ro" lang="ro">Experiențe deosebite:</span></strong>
-                <span class="en"> add a short, faith-strengthening experience from your territory here.</span>
-                <span class="ro" lang="ro"> adăugați aici o experiență scurtă, care întărește credința, din teritoriul vostru.</span>
+                <strong><span class="en">Public witnessing in beautiful places:</span><span class="ro" lang="ro">Mărturie publică în locuri frumoase:</span></strong>
+                <span class="en"> we share in the public ministry at spots tourists travel far to see — the Bicaz Gorges (Bicaz-Chei) and the great dam of Lake Bicaz.</span>
+                <span class="ro" lang="ro"> participăm la lucrarea publică în locuri pe care turiștii vin de departe să le vadă — Cheile Bicazului (Bicaz-Chei) și barajul lacului Bicaz.</span>
               </li>
               <li>
-                <!-- TODO: special campaigns -->
-                <strong><span class="en">Special campaigns:</span><span class="ro" lang="ro">Campanii speciale:</span></strong>
-                <span class="en"> describe seasonal or special-territory campaigns you take part in.</span>
-                <span class="ro" lang="ro"> descrieți campaniile sezoniere sau pentru teritorii speciale la care participați.</span>
+                <strong><span class="en">Visiting speakers:</span><span class="ro" lang="ro">Vorbitori invitați:</span></strong>
+                <span class="en"> many brothers invited to give the public talk at our Sunday meeting travel around 100 km to reach our congregation.</span>
+                <span class="ro" lang="ro"> mulți frați invitați să prezinte cuvântarea publică la întrunirea de duminică parcurg în jur de 100 km până la congregația noastră.</span>
               </li>
               <li>
-                <!-- TODO: nearby congregations -->
                 <strong><span class="en">Nearby congregations:</span><span class="ro" lang="ro">Congregații învecinate:</span></strong>
-                <span class="en"> list the congregations around you and how you cooperate.</span>
-                <span class="ro" lang="ro"> enumerați congregațiile din jur și modul în care colaborați.</span>
+                <span class="en"> Piatra Neamț is our nearest congregation — the one our group grew out of in 2019 — and we still cooperate closely.</span>
+                <span class="ro" lang="ro"> Piatra Neamț este cea mai apropiată congregație — cea din care a crescut grupa noastră în 2019 — și colaborăm în continuare îndeaproape.</span>
               </li>
             </ul>
           </div>
@@ -783,28 +884,29 @@
           <div class="info-card reveal">
             <h3><span class="en">Meeting times</span><span class="ro" lang="ro">Programul întrunirilor</span></h3>
             <ul>
-              <!-- TODO: real meeting times -->
-              <li><span class="en">Midweek: Day, 18:30</span><span class="ro" lang="ro">În timpul săptămânii: ziua, 18:30</span></li>
-              <li><span class="en">Weekend: Day, 10:00</span><span class="ro" lang="ro">În weekend: ziua, 10:00</span></li>
-              <li><span class="en">Language: Romanian (ask us about interpretation)</span><span class="ro" lang="ro">Limba: română (întrebați-ne despre interpretare)</span></li>
+              <li><span class="en">Midweek: Wednesday, 18:00</span><span class="ro" lang="ro">În timpul săptămânii: miercuri, 18:00</span></li>
+              <li><span class="en">Weekend: Sunday, 11:00</span><span class="ro" lang="ro">În weekend: duminică, 11:00</span></li>
+              <li><span class="en">Language: Romanian</span><span class="ro" lang="ro">Limba: română</span></li>
             </ul>
           </div>
 
           <div class="info-card reveal">
-            <h3><span class="en">How to reach us</span><span class="ro" lang="ro">Cum ajungeți la noi</span></h3>
+            <h3><span class="en">Where we meet</span><span class="ro" lang="ro">Unde ne întrunim</span></h3>
             <p>
-              <!-- TODO: how to reach the Kingdom Hall (transport, parking, etc.) -->
-              <span class="en">Describe how to arrive: nearest bus stops, parking, walking directions from the centre.</span>
-              <span class="ro" lang="ro">Descrieți cum se ajunge: stații de autobuz apropiate, parcare, indicații pe jos din centru.</span>
+              <span class="en">Str. Pieții, nr. 6, 1st floor<br>615100 Bicaz, Neamț — right in the town centre, by the market.</span>
+              <span class="ro" lang="ro">Str. Pieții, nr. 6, etaj 1<br>615100 Bicaz, Neamț — chiar în centrul orașului, lângă piață.</span>
+            </p>
+            <p style="margin-top:.6rem">
+              <span class="en">The 2026 convention itself is held in <strong>Bacău</strong>, about 90 km from Bicaz.</span>
+              <span class="ro" lang="ro">Congresul din 2026 are loc la <strong>Bacău</strong>, la circa 90 km de Bicaz.</span>
             </p>
           </div>
 
           <div class="info-card reveal">
             <h3><span class="en">Contact</span><span class="ro" lang="ro">Contact</span></h3>
             <p>
-              <!-- TODO: contact person and method (name, phone/e-mail/WhatsApp) -->
-              <span class="en">Contact person: Name · phone / e-mail. We're happy to help you plan your visit.</span>
-              <span class="ro" lang="ro">Persoană de contact: Nume · telefon / e-mail. Vă ajutăm cu plăcere să vă planificați vizita.</span>
+              <span class="en">Public contact phone: <a href="tel:+40733570552">0733 570 552</a>.<br>We're happy to help you plan your visit.</span>
+              <span class="ro" lang="ro">Telefon de contact pentru public: <a href="tel:+40733570552">0733 570 552</a>.<br>Vă ajutăm cu plăcere să vă planificați vizita.</span>
             </p>
           </div>
 
@@ -812,16 +914,15 @@
             <h3><span class="en">Nearby sights</span><span class="ro" lang="ro">Obiective din apropiere</span></h3>
             <ul>
               <!-- TODO: adjust the list of nearby sights -->
-              <li><span class="en">Lake Bâtca Doamnei</span><span class="ro" lang="ro">Lacul Bâtca Doamnei</span></li>
-              <li><span class="en">The Piatra Neamț gondola (Cozla Mountain)</span><span class="ro" lang="ro">Telegondola Piatra Neamț (Muntele Cozla)</span></li>
-              <li><span class="en">The Neamț Monastery region &amp; Cheile Bicazului gorges</span><span class="ro" lang="ro">Zona Mănăstirii Neamț și Cheile Bicazului</span></li>
+              <li><span class="en">The Bicaz Gorges &amp; Lacu Roșu</span><span class="ro" lang="ro">Cheile Bicazului și Lacu Roșu</span></li>
+              <li><span class="en">The Bicaz dam &amp; Lake Izvorul Muntelui</span><span class="ro" lang="ro">Barajul Bicaz și lacul Izvorul Muntelui</span></li>
+              <li><span class="en">Ceahlău National Park</span><span class="ro" lang="ro">Parcul Național Ceahlău</span></li>
             </ul>
           </div>
         </div>
 
         <p class="directions-cta reveal">
-          <!-- TODO: replace coordinates/address in the directions link with your exact Kingdom Hall location -->
-          <a class="btn btn-green" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.9300%2C26.3700" target="_blank" rel="noopener">
+          <a class="btn btn-green" href="https://www.google.com/maps/dir/?api=1&amp;destination=Strada+Pie%C8%9Bii+6%2C+Bicaz+615100%2C+Romania" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-5.6 8-12a8 8 0 1 0-16 0c0 6.4 8 12 8 12z"/><circle cx="12" cy="10" r="3"/></svg>
             <span class="en">Get directions</span>
             <span class="ro" lang="ro">Obține indicații</span>
@@ -897,6 +998,47 @@
     }
 
     /* ----------------------------------------------------------
+       ANIMATED COUNTERS — numbers count up when scrolled into view
+       (every element with data-count; optional data-prefix/suffix)
+       ---------------------------------------------------------- */
+    function runCounter(el){
+      var target = parseInt(el.getAttribute("data-count"), 10);
+      var prefix = el.getAttribute("data-prefix") || "";
+      var suffix = el.getAttribute("data-suffix") || "";
+      var fmt = function(n){
+        return prefix + n.toLocaleString(
+          document.documentElement.lang === "ro" ? "ro-RO" : "en-US") + suffix;
+      };
+      if(prefersReducedMotion || !("requestAnimationFrame" in window)){
+        el.textContent = fmt(target);
+        return;
+      }
+      var dur = 1600, start = null;
+      function step(ts){
+        if(start === null) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3); /* ease-out cubic */
+        el.textContent = fmt(Math.round(target * eased));
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    var counterEls = document.querySelectorAll("[data-count]");
+    if("IntersectionObserver" in window){
+      var cio = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            runCounter(entry.target);
+            cio.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .6 });
+      counterEls.forEach(function(el){ cio.observe(el); });
+    } else {
+      counterEls.forEach(runCounter);
+    }
+
+    /* ----------------------------------------------------------
        GENTLE PARALLAX on the hero welcome panel
        ---------------------------------------------------------- */
     if(!prefersReducedMotion){
@@ -922,20 +1064,22 @@
     function initMap(){
       if(typeof L === "undefined"){ setTimeout(initMap, 150); return; }
 
-      /* TODO: exact coordinates of your Kingdom Hall / congregation location */
-      var CONGREGATION = [46.9300, 26.3700];
+      /* Meeting place: Str. Pieții, nr. 6, etaj 1, 615100 Bicaz.
+         TODO: fine-tune these coordinates to the exact building if needed */
+      var CONGREGATION = [46.9119, 26.0905];
 
-      /* TODO: PASTE YOUR REAL TERRITORY BOUNDARY COORDINATES HERE.
-         Each pair is [latitude, longitude]; the polygon closes itself.
-         The ring below is only a placeholder around Piatra Neamț. */
-      var TERRITORY = [
-        [46.9680, 26.3050],
-        [46.9830, 26.3640],
-        [46.9600, 26.4330],
-        [46.9210, 26.4580],
-        [46.8820, 26.4230],
-        [46.8740, 26.3420],
-        [46.9030, 26.2950]
+      /* Preaching territory of the Bicaz-Centru congregation (8 communes),
+         imported from the official KML and simplified for the web.
+         TODO: to update boundaries, re-export the KML and replace this array. */
+      var TERRITORIES = [
+        { name: "Bicaz", coords: [[46.9728,25.9469],[46.9667,25.9472],[46.958,25.9427],[46.94,25.9567],[46.9373,25.9559],[46.9344,25.959],[46.9296,25.9573],[46.9344,25.9755],[46.9316,25.9846],[46.9232,25.9905],[46.9223,25.9983],[46.9238,26.0084],[46.9307,26.0161],[46.9335,26.0336],[46.9191,26.0555],[46.9157,26.0589],[46.9143,26.0552],[46.9074,26.0512],[46.893,26.0484],[46.8911,26.0528],[46.8842,26.0522],[46.8804,26.0556],[46.8776,26.0656],[46.8866,26.0772],[46.8952,26.1016],[46.8998,26.1071],[46.9021,26.114],[46.9007,26.117],[46.906,26.1232],[46.9073,26.1403],[46.9195,26.1261],[46.9316,26.1367],[46.9372,26.1372],[46.9408,26.135],[46.9504,26.1408],[46.9615,26.1342],[46.9717,26.1342],[46.9774,26.1451],[46.9873,26.1497],[46.9982,26.1444],[46.9935,26.1239],[46.9897,26.1167],[46.9902,26.1118],[46.9927,26.1099],[46.9919,26.1049],[46.9862,26.0998],[46.9749,26.0972],[46.9724,26.0927],[46.9644,26.0875],[46.954,26.0905],[46.956,26.0811],[46.9609,26.0726],[46.9685,26.0717],[46.9789,26.0658],[46.9827,26.0694],[46.9889,26.0844],[46.9936,26.0859],[46.9974,26.0794],[47.0037,26.0756],[47.0251,26.052],[47.0074,26.0318],[47.0093,26.0189],[47.0054,25.9973],[46.9969,25.9878],[46.9918,25.9867],[46.987,25.9613]] },
+        { name: "Bicaz-Chei", coords: [[46.8457,25.7632],[46.8413,25.7633],[46.8348,25.7725],[46.8341,25.7829],[46.8259,25.7779],[46.8211,25.7831],[46.8132,25.7851],[46.8025,25.8199],[46.7996,25.8229],[46.7995,25.8206],[46.798,25.8212],[46.7969,25.8251],[46.7939,25.8232],[46.7946,25.8305],[46.7889,25.8308],[46.7851,25.8339],[46.7877,25.8438],[46.786,25.8505],[46.7917,25.8599],[46.7917,25.8683],[46.8,25.8782],[46.8039,25.8897],[46.8092,25.8946],[46.8164,25.8928],[46.821,25.8951],[46.8235,25.9033],[46.8202,25.9257],[46.8108,25.9416],[46.806,25.9455],[46.8068,25.9616],[46.8033,25.974],[46.7987,25.9773],[46.7911,25.9777],[46.7857,25.972],[46.7848,25.9672],[46.7784,25.9633],[46.7703,25.9695],[46.7674,25.9828],[46.7646,25.9862],[46.7769,26.0105],[46.7798,26.0116],[46.7887,26.0085],[46.7991,26.0185],[46.8031,26.003],[46.8103,25.9928],[46.8274,26.0128],[46.8279,26.0077],[46.831,26.0028],[46.8346,26.0035],[46.8385,25.9939],[46.8356,25.9869],[46.843,25.9556],[46.8347,25.9183],[46.836,25.9142],[46.8411,25.9133],[46.8393,25.9071],[46.8407,25.9013],[46.8448,25.9033],[46.8468,25.8977],[46.8464,25.871],[46.8447,25.864],[46.8418,25.8632],[46.8455,25.853],[46.8337,25.8531],[46.8345,25.8456],[46.8405,25.8441],[46.8443,25.8354],[46.8494,25.8388],[46.8499,25.8306],[46.8544,25.8332],[46.8554,25.837],[46.8674,25.8249],[46.873,25.7931],[46.871,25.7875],[46.8648,25.7836],[46.865,25.7806],[46.8625,25.7819],[46.851,25.7736]] },
+        { name: "Bicazu Ardelean", coords: [[46.8845,25.766],[46.8715,25.7752],[46.8689,25.7815],[46.8658,25.7808],[46.872,25.7872],[46.874,25.793],[46.8681,25.8257],[46.8555,25.8384],[46.8539,25.834],[46.8503,25.8321],[46.8504,25.8397],[46.8449,25.8373],[46.8411,25.845],[46.8354,25.8455],[46.8347,25.8518],[46.8462,25.8519],[46.8426,25.8602],[46.8454,25.8627],[46.8472,25.8707],[46.8476,25.885],[46.8469,25.9008],[46.8453,25.9053],[46.8408,25.9018],[46.8394,25.9069],[46.8412,25.9134],[46.8364,25.9145],[46.8359,25.918],[46.8439,25.9555],[46.8377,25.9812],[46.8466,25.9759],[46.8511,25.9697],[46.8656,25.9674],[46.8659,25.9692],[46.8696,25.9685],[46.8772,25.9772],[46.8711,25.9581],[46.8692,25.9421],[46.8748,25.9338],[46.8809,25.9301],[46.8841,25.9211],[46.8938,25.9151],[46.8988,25.9274],[46.9071,25.9289],[46.9113,25.9333],[46.914,25.9316],[46.9208,25.9332],[46.9232,25.9284],[46.9291,25.9396],[46.9315,25.9344],[46.9335,25.9362],[46.9353,25.9345],[46.942,25.9359],[46.9416,25.9288],[46.9535,25.9261],[46.9524,25.9145],[46.9481,25.9098],[46.9485,25.898],[46.9378,25.8792],[46.9324,25.8764],[46.9301,25.8656],[46.9231,25.8625],[46.9203,25.8559],[46.92,25.8418],[46.9229,25.8391],[46.9223,25.8278],[46.9286,25.8041],[46.924,25.8012],[46.9147,25.8018],[46.9056,25.788]] },
+        { name: "Dămuc", coords: [[46.7723,25.8012],[46.7683,25.8006],[46.7649,25.8056],[46.761,25.8035],[46.7572,25.806],[46.7419,25.8038],[46.7372,25.8078],[46.7287,25.7989],[46.7282,25.8006],[46.7184,25.7963],[46.699,25.812],[46.6831,25.8362],[46.6771,25.838],[46.6724,25.8428],[46.6718,25.8482],[46.6653,25.853],[46.6604,25.8609],[46.6502,25.8674],[46.6496,25.9011],[46.6551,25.9081],[46.664,25.9025],[46.6683,25.9023],[46.6699,25.8976],[46.6752,25.8948],[46.6836,25.885],[46.6885,25.8833],[46.6935,25.889],[46.699,25.8902],[46.7048,25.9024],[46.7007,25.9103],[46.7027,25.9321],[46.6994,25.9483],[46.6958,25.9546],[46.6996,25.9624],[46.697,25.9837],[46.7002,25.9985],[46.7091,25.9934],[46.7125,25.9953],[46.7143,25.9923],[46.7225,25.9897],[46.7271,25.9899],[46.736,25.9969],[46.7464,25.9984],[46.762,25.9898],[46.7668,25.9821],[46.7695,25.9688],[46.7785,25.9621],[46.7855,25.9663],[46.7864,25.9712],[46.7915,25.9766],[46.7986,25.976],[46.8045,25.9696],[46.8054,25.9444],[46.8106,25.9402],[46.8194,25.925],[46.8227,25.9009],[46.8167,25.8939],[46.8075,25.8952],[46.8036,25.8911],[46.7994,25.879],[46.7909,25.8692],[46.7906,25.8597],[46.785,25.8512],[46.7869,25.8438],[46.7847,25.8337],[46.789,25.8304],[46.7943,25.8303],[46.7935,25.823],[46.7848,25.809],[46.7784,25.8047],[46.7763,25.8069]] },
+        { name: "Hangu", coords: [[47.0615,25.9618],[47.057,25.9605],[47.0504,25.9732],[47.049,25.9802],[47.0508,25.9892],[47.0479,26.0038],[47.0343,26.0421],[47.0258,26.0526],[47.0042,26.0762],[46.9979,26.0799],[46.9941,26.0867],[46.9885,26.0852],[46.9787,26.0665],[46.9692,26.0722],[46.9619,26.0731],[46.9584,26.0768],[46.9547,26.0896],[46.9645,26.0864],[46.9733,26.0925],[46.9755,26.0965],[46.9823,26.0963],[46.9924,26.1045],[46.9932,26.1111],[46.9904,26.117],[46.9938,26.1223],[46.9984,26.1437],[47.0125,26.1389],[47.0138,26.1441],[47.0187,26.1466],[47.0227,26.1404],[47.0337,26.1337],[47.0374,26.14],[47.0474,26.1411],[47.053,26.1374],[47.0581,26.1265],[47.0755,26.1199],[47.0846,26.1114],[47.0904,26.1095],[47.1009,26.0989],[47.112,26.0965],[47.1217,26.1043],[47.1289,26.1036],[47.131,26.0958],[47.1366,26.0918],[47.138,26.0869],[47.1474,26.0861],[47.1493,26.0826],[47.1464,26.0698],[47.1484,26.055],[47.146,26.0503],[47.1463,26.0388],[47.1398,26.0329],[47.1334,26.0312],[47.1222,26.0333],[47.1085,26.0302],[47.1012,26.0313],[47.0959,26.0262],[47.0937,26.027],[47.089,26.0154],[47.078,26.0131],[47.071,26.0043],[47.0686,25.9688]] },
+        { name: "Pângăraţi", coords: [[47.0117,26.1404],[46.9875,26.1506],[46.9779,26.1467],[46.971,26.1346],[46.9658,26.1365],[46.9613,26.1351],[46.9505,26.142],[46.9407,26.1359],[46.9372,26.1382],[46.9312,26.1376],[46.9194,26.1268],[46.9076,26.1414],[46.914,26.1573],[46.9082,26.1784],[46.8974,26.176],[46.8909,26.1688],[46.886,26.1772],[46.8777,26.1783],[46.8742,26.1823],[46.8688,26.18],[46.8618,26.1874],[46.8553,26.19],[46.8496,26.1891],[46.8423,26.1933],[46.831,26.2063],[46.8268,26.2078],[46.8251,26.2152],[46.8226,26.214],[46.8107,26.2276],[46.8038,26.2312],[46.8065,26.2383],[46.8216,26.2436],[46.8296,26.2423],[46.8417,26.2538],[46.8569,26.2362],[46.861,26.2392],[46.8672,26.2377],[46.8986,26.2232],[46.9121,26.2217],[46.9136,26.2181],[46.9267,26.24],[46.9258,26.2433],[46.9321,26.2386],[46.9433,26.2442],[46.9432,26.2461],[46.9475,26.2425],[46.9526,26.245],[46.9551,26.2357],[46.954,26.2264],[46.9568,26.2241],[46.957,26.2273],[46.9632,26.2307],[46.9681,26.226],[46.9756,26.2385],[46.98,26.2398],[46.9857,26.2268],[46.9935,26.2319],[46.9963,26.2276],[47.0015,26.227],[47.0039,26.2239],[47.0062,26.2164],[47.0027,26.2083],[47.0094,26.1959],[47.0088,26.1901],[47.012,26.1803],[47.0084,26.1753],[47.0123,26.1679],[47.0097,26.1602],[47.0183,26.1479],[47.013,26.1449]] },
+        { name: "Tarcău", coords: [[46.812,25.9943],[46.8036,26.0036],[46.799,26.0198],[46.7886,26.01],[46.7774,26.0124],[46.7697,26.0017],[46.7643,25.9879],[46.7603,25.9923],[46.7422,26.0005],[46.7227,25.991],[46.715,25.9936],[46.7134,25.9966],[46.7091,25.9947],[46.7025,25.9982],[46.6965,26.0044],[46.6951,26.0129],[46.6963,26.0161],[46.702,26.0179],[46.7142,26.0402],[46.7174,26.052],[46.7127,26.0682],[46.7083,26.0722],[46.6987,26.0731],[46.697,26.0763],[46.6941,26.0765],[46.6884,26.0714],[46.6804,26.0734],[46.6736,26.0822],[46.6674,26.0796],[46.6624,26.0829],[46.6585,26.08],[46.6483,26.0972],[46.6478,26.1021],[46.6557,26.114],[46.6613,26.1395],[46.6575,26.1483],[46.649,26.1537],[46.6464,26.1516],[46.6423,26.1593],[46.6527,26.1862],[46.6522,26.2046],[46.6565,26.2155],[46.6673,26.2144],[46.6747,26.2177],[46.6773,26.2216],[46.6803,26.2172],[46.6854,26.232],[46.6953,26.2388],[46.6977,26.2435],[46.6976,26.2498],[46.7036,26.2652],[46.7101,26.2669],[46.7187,26.2632],[46.7305,26.2655],[46.7363,26.2603],[46.7424,26.2659],[46.7458,26.2741],[46.7478,26.2696],[46.7573,26.2705],[46.7564,26.2605],[46.7611,26.2552],[46.7684,26.2537],[46.772,26.2457],[46.7832,26.2429],[46.7961,26.2275],[46.803,26.2299],[46.8101,26.2264],[46.8158,26.2174],[46.8223,26.2125],[46.8249,26.2134],[46.8267,26.2057],[46.8301,26.2052],[46.842,26.1918],[46.8498,26.1874],[46.8549,26.1885],[46.8614,26.1861],[46.8686,26.1784],[46.874,26.1804],[46.8774,26.1769],[46.8854,26.1759],[46.8906,26.1671],[46.8975,26.1748],[46.9084,26.1779],[46.9127,26.1546],[46.9075,26.1466],[46.9054,26.1243],[46.9005,26.117],[46.9019,26.1137],[46.8966,26.1057],[46.8862,26.0777],[46.8777,26.0669],[46.8792,26.0741],[46.8735,26.0772],[46.8717,26.0744],[46.8659,26.075],[46.8636,26.0725],[46.8566,26.0739],[46.8528,26.0789],[46.8499,26.0776],[46.8432,26.0816],[46.8401,26.0794],[46.8352,26.0699],[46.8305,26.0516],[46.8266,26.0134]] },
+        { name: "Taşca", coords: [[46.9322,25.9357],[46.9295,25.9413],[46.9233,25.9314],[46.921,25.9345],[46.9142,25.9329],[46.9106,25.9345],[46.9071,25.9303],[46.8984,25.9286],[46.8955,25.9257],[46.8934,25.9166],[46.8848,25.9224],[46.8813,25.9313],[46.8712,25.9383],[46.8694,25.9422],[46.8776,25.9779],[46.8656,25.9676],[46.8518,25.9708],[46.8473,25.9768],[46.8383,25.9822],[46.8366,25.9866],[46.8398,25.9939],[46.8377,26.0007],[46.8348,26.005],[46.8311,26.004],[46.8272,26.0158],[46.8316,26.051],[46.8407,26.0787],[46.848,26.0783],[46.85,26.0755],[46.8521,26.077],[46.8587,26.0714],[46.8639,26.0712],[46.8689,26.0742],[46.8724,26.073],[46.8743,26.0753],[46.8778,26.0727],[46.8766,26.0659],[46.8806,26.0537],[46.8842,26.0512],[46.8906,26.0522],[46.8935,26.0475],[46.9019,26.0507],[46.9047,26.0493],[46.9161,26.0566],[46.9218,26.0477],[46.9256,26.0459],[46.9328,26.0321],[46.9302,26.0165],[46.9228,26.0087],[46.9213,25.9976],[46.9228,25.9899],[46.9311,25.9841],[46.9338,25.9757],[46.9291,25.96],[46.9345,25.9482]] },
       ];
 
       var map = L.map("map", {
@@ -956,15 +1100,20 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
-      /* soft territory polygon in convention green */
-      var territory = L.polygon(TERRITORY, {
-        color: "#5c8e44",
-        weight: 2.5,
-        opacity: .9,
-        fillColor: "#5c8e44",
-        fillOpacity: .14,
-        dashArray: "6 8"
-      }).addTo(map);
+      /* soft territory polygons in convention green, one per commune */
+      var territoryGroup = L.featureGroup(TERRITORIES.map(function(t){
+        return L.polygon(t.coords, {
+          color: "#5c8e44",
+          weight: 2.5,
+          opacity: .9,
+          fillColor: "#5c8e44",
+          fillOpacity: .14,
+          dashArray: "6 8"
+        }).bindTooltip(t.name, { sticky: true, direction: "top" });
+      })).addTo(map);
+
+      /* open with the whole territory in view */
+      map.fitBounds(territoryGroup.getBounds(), { padding: [30, 30], animate: false });
 
       /* custom marker: convention-orange pin with sun-yellow heart of the dot */
       var pin = L.divIcon({
@@ -983,10 +1132,9 @@
       L.marker(CONGREGATION, {
         icon: pin,
         title: "Our congregation",
-        alt: "Marker: our congregation in Piatra Neamț"
+        alt: "Marker: our meeting place in Bicaz"
       }).addTo(map)
-        /* TODO: edit the marker popup text (congregation name / address) */
-        .bindPopup("<strong>Piatra Neamț Congregation</strong><br>TODO: street address here");
+        .bindPopup("<strong>Bicaz-Centru Congregation</strong><br>Str. Pieții, nr. 6, etaj 1<br>615100 Bicaz, Neamț");
 
       /* “View territory” button pans/zooms the hero map to the polygon */
       var viewBtn = document.getElementById("view-territory");
@@ -996,12 +1144,12 @@
             behavior: prefersReducedMotion ? "auto" : "smooth"
           });
           setTimeout(function(){
-            map.fitBounds(territory.getBounds(), {
+            map.fitBounds(territoryGroup.getBounds(), {
               padding: [40, 40],
               animate: !prefersReducedMotion
             });
-            territory.setStyle({ fillOpacity: .26 });
-            setTimeout(function(){ territory.setStyle({ fillOpacity: .14 }); }, 1800);
+            territoryGroup.setStyle({ fillOpacity: .26 });
+            setTimeout(function(){ territoryGroup.setStyle({ fillOpacity: .14 }); }, 1800);
           }, prefersReducedMotion ? 100 : 650);
         });
       }
