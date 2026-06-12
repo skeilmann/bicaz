@@ -357,12 +357,16 @@
     .counter .big{
       display:block;
       font-family:var(--display); font-weight:700;
-      font-size:clamp(2.1rem, 5vw, 2.9rem);
+      /* small enough on narrow phones that "1 / 800" or "100 km" never
+         overflows or wraps while the number counts up */
+      font-size:clamp(1.5rem, 5.5vw, 2.9rem);
       line-height:1.1;
       color:var(--yellow);
       font-variant-numeric:tabular-nums;
+      white-space:nowrap;
       margin-bottom:.4rem;
     }
+    .counter{ min-width:0; }
     .counter .cap{ font-size:.85rem; color:#ece4d1; line-height:1.45; display:block; }
     /* light variant for the About section (sand background) */
     .counters--light{ margin-top:2.6rem; }
@@ -809,8 +813,8 @@
             <span class="cap"><span class="en">Villages to preach in</span><span class="ro" lang="ro">Sate de predicat</span></span>
           </div>
           <div class="counter" role="listitem">
-            <span class="big" data-count="2000" data-prefix="1 / ">1 / 0</span>
-            <span class="cap"><span class="en">One publisher for every 2,000 inhabitants</span><span class="ro" lang="ro">Un vestitor la 2 000 de locuitori</span></span>
+            <span class="big" data-count="800" data-prefix="1 / ">1 / 0</span>
+            <span class="cap"><span class="en">One publisher for every ~800 inhabitants</span><span class="ro" lang="ro">Un vestitor la circa 800 de locuitori</span></span>
           </div>
           <div class="counter" role="listitem">
             <span class="big" data-count="100" data-suffix=" km">0</span>
@@ -853,9 +857,8 @@
             </span>
             <h3><span class="en">Population</span><span class="ro" lang="ro">Populație</span></h3>
             <p>
-              <!-- TODO: adjust the population figure if needed -->
-              <span class="en">Around 70,000 people live in our territory — about 2,000 inhabitants for every publisher.</span>
-              <span class="ro" lang="ro">În teritoriul nostru locuiesc în jur de 70 000 de oameni — aproximativ 2 000 de locuitori pentru fiecare vestitor.</span>
+              <span class="en">About 28,600 people live in our territory (2021 census) — roughly 800 inhabitants for every publisher.</span>
+              <span class="ro" lang="ro">În teritoriul nostru locuiesc aproximativ 28 600 de oameni (recensământul din 2021) — circa 800 de locuitori pentru fiecare vestitor.</span>
             </p>
           </div>
 
