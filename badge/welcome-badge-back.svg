@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1400" viewBox="0 0 1000 1400" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="1000" height="1400" rx="48" fill="#f8edd9"/>
+  <rect x="14" y="14" width="972" height="1372" rx="38" fill="none" stroke="#133e35" stroke-opacity=".18" stroke-width="3"/>
+
+  <circle cx="836" cy="170" r="70" fill="#f0be49"/>
+
+  <text x="500" y="210" text-anchor="middle" font-size="86" font-weight="bold" fill="#133e35">My name is</text>
+  <text x="500" y="296" text-anchor="middle" font-size="56" font-style="italic" fill="#b05912">M&#259; numesc</text>
+
+  <!-- writing panel -->
+  <rect x="150" y="372" width="700" height="392" rx="32" fill="#ffffff" stroke="#133e35" stroke-width="4"/>
+  <!-- baseline for handwriting -->
+  <line x1="210" y1="648" x2="790" y2="648" stroke="#133e35" stroke-opacity=".32" stroke-width="2.5"/>
+  <text x="500" y="704" text-anchor="middle" font-size="26" font-style="italic" fill="#9e9d91">first &amp; last name &#183; prenume &#537;i nume</text>
+
+  <!-- warm message -->
+  <text x="500" y="884" text-anchor="middle" font-size="46" font-style="italic" fill="#5c8e44">It is a joy to meet you!</text>
+  <text x="500" y="946" text-anchor="middle" font-size="40" font-style="italic" fill="#5c8e44">Ce bucurie s&#259; v&#259; cunoa&#537;tem!</text>
+
+  <text x="500" y="1044" text-anchor="middle" font-size="33" font-style="italic" fill="#16241f">2026 &#8220;Eternal Happiness&#8221; Convention &#183; Neam&#539;, Romania</text>
+  <text x="500" y="1094" text-anchor="middle" font-size="28" fill="#9e9d91">https://skeilmann.github.io/bicaz/</text>
+
+  <!-- mountain footer (matches the front) -->
+  <path d="M0 1290 L160 1205 L300 1280 L450 1192 L600 1282 L760 1215 L1000 1295 L1000 1352 Q1000 1400 952 1400 L48 1400 Q0 1400 0 1352 Z" fill="#5c8e44"/>
+  <path d="M0 1325 L180 1255 L340 1320 L520 1240 L700 1322 L860 1268 L1000 1330 L1000 1352 Q1000 1400 952 1400 L48 1400 Q0 1400 0 1352 Z" fill="#133e35"/>
+  <text x="500" y="1376" text-anchor="middle" font-size="29" fill="#f8edd9">Bicaz-Centru Congregation &#183; Congrega&#539;ia Bicaz-Centru</text>
+</svg>
