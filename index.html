@@ -551,10 +551,23 @@
       border:1px solid rgba(248,237,217,.18);
       box-shadow:0 20px 60px rgba(0,0,0,.42);
     }
+    /* landscape (16:9) players, e.g. embeds or extra clips */
     .video-feature video, .video-feature iframe,
     .video-card video, .video-card iframe{
       display:block; width:100%; height:auto;
       aspect-ratio:16/9; border:0;
+      background:#0c2620;
+    }
+    /* portrait (vertical phone) featured video: centered on a dark backdrop,
+       height-capped so it doesn't dominate the viewport */
+    .video-feature--portrait{
+      display:flex; justify-content:center;
+      background:#0c2620;
+    }
+    .video-feature--portrait video{
+      width:auto; max-width:100%;
+      height:78vh; max-height:680px;
+      aspect-ratio:9/16;
       background:#0c2620;
     }
     .video-grid{
@@ -1015,15 +1028,16 @@
           </p>
         </div>
 
-        <!-- FEATURED VIDEO — public witnessing with the cart, filmed in our territory.
-             To swap it, replace the file videos/preaching-cart.mp4 (and its poster image),
-             or replace the whole <video> element with an embed iframe, e.g.:
+        <!-- FEATURED VIDEO — cart witnessing at the Bicaz Gorges, filmed in our territory (vertical phone video).
+             To swap it, replace the file videos/our-zone.mp4 (and its poster image videos/our-zone-poster.jpg).
+             If you replace it with a landscape clip, drop the "--portrait" modifier from the wrapping div below.
+             Or replace the whole <video> element with an embed iframe, e.g.:
              <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Our zone in motion"
                      loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe> -->
-        <div class="video-feature reveal">
-          <video controls preload="none" width="848" height="480"
-            poster="videos/preaching-cart-poster.jpg">
-            <source src="videos/preaching-cart.mp4" type="video/mp4">
+        <div class="video-feature video-feature--portrait reveal">
+          <video controls preload="none" width="720" height="1280" playsinline
+            poster="videos/our-zone-poster.jpg">
+            <source src="videos/our-zone.mp4" type="video/mp4">
             <span class="en">Your browser does not support embedded videos.</span>
             <span class="ro" lang="ro">Browserul dumneavoastră nu acceptă videoclipuri încorporate.</span>
           </video>
